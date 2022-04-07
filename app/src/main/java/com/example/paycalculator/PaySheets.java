@@ -148,7 +148,7 @@ public class PaySheets extends AppCompatActivity
         dialogBuilder.setView( inputBreakdownPopUpView );
         dialog = dialogBuilder.create();
         dialog.show();
-
+//
         btn_back.setOnClickListener(new View.OnClickListener()
         {
             @Override
