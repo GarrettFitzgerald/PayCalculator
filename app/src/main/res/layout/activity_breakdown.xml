@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Breakdown"
+    android:background="@color/DHB_Teal"
+>
+
+    <RelativeLayout
+        android:id="@+id/lyt_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/txt_shiftinput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/txt_breakdown"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_shiftinput"
+            android:layout_centerHorizontal="true"
+            android:text="@string/txt_placeholderdate"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lyt_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/lyt_one"
+        android:layout_above="@id/lyt_three"
+        >
+        //Headings on the left
+        <TextView
+            android:id="@+id/txt_totalhours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_totalhours"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_ordinarytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_ordinarytime"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_totalhours"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_penal25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_penal25"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_ordinarytime"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_penal5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_penal5"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_penal25"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_timeandhalf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_timeandhalf"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_penal5"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_doubletime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_doubletime"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_timeandhalf"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_stat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_stat"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_doubletime"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_grosspay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_paygross"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_stat"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_paye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_grosspay"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/txt_paye"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_studentloan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_studentloan"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_paye"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_union"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_unionfee"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_studentloan"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_parking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_parkingfee"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_union"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_employeekiwisaver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_employeekiwisaver"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_parking"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_employeerkiwisaver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_employeerkiwisaver"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_below="@id/txt_employeekiwisaver"
+            android:layout_marginLeft="20dp"
+        />
+
+        <TextView
+            android:id="@+id/txt_paynet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_employeerkiwisaver"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/txt_paynet"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+        //Headings on the right
+        <TextView
+            android:id="@+id/txt_totalhoursvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdernumber"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_ordinarytimevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_totalhoursvalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_penal25value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_ordinarytimevalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_penal5value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_penal25value"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_timeandhalfvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_penal5value"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_doubletimevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_timeandhalfvalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txt_statvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_doubletimevalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_paygrossvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_statvalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_payevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_paygrossvalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_studentloanvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_payevalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_unionfeevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_studentloanvalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_parkingfeevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_unionfeevalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_employeekiwisavervalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_parkingfeevalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_employeerkiwisavervalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_employeekiwisavervalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+        />
+
+        <TextView
+            android:id="@+id/txt_paynetvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_employeerkiwisavervalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdervalue"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            />
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lyt_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        >
+        <Button
+            android:id="@+id/btn_input"
+            android:layout_width="230dp"
+            android:layout_height="55dp"
+            android:text="@string/btn_input"
+            />
+
+        <Button
+            android:id="@+id/btn_information"
+            android:layout_width="230dp"
+            android:layout_height="55dp"
+            android:layout_below="@id/btn_input"
+            android:text="@string/btn_information" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

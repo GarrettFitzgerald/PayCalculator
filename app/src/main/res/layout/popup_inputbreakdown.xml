@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+
+    <TextView
+        android:id="@+id/txt_dateselected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/txt_placeholderdate"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+    />
+
+    <Button
+        android:id="@+id/btn_input"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txt_dateselected"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_input"
+    />
+
+    <Button
+        android:id="@+id/btn_breakdown"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_input"
+        android:text="@string/btn_breakdown"
+        />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_breakdown"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_back"
+    />
+
+</RelativeLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInScreen"
+    android:background="@color/DHB_Teal">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/dsc_logo"
+            android:src="@drawable/dbh_logo"
+        />
+
+        <EditText
+            android:id="@+id/edt_username"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_logo"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:hint="@string/txt_username"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_username"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:hint="@string/hnt_password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="@string/btn_login"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/edt_password"
+            android:layout_marginTop="30dp"
+        />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="@string/btn_clear"
+            android:layout_below="@id/edt_password"
+            android:layout_marginTop="30dp"
+        />
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="@string/btn_signup"
+            android:layout_below="@id/edt_password"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="250dp"
+        />
+
+    </RelativeLayout>
+
+</RelativeLayout>

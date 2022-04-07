@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Orderlies Pay Calculator</string>
+
+    <string name="txt_loading">Application is Loading</string>
+    <string name="txt_placeholder">PlaceHolder</string>
+    <string name="txt_name">Employee Name :</string>
+    <string name="txt_email">Email :</string>
+    <string name="txt_emailaddress">Email Address :</string>
+    <string name="txt_job">Job Title :</string>
+    <string name="txt_grade">Pay Grade :</string>
+    <string name="txt_kiwisaver">KiwiSaver :</string>
+    <string name="txt_union">Union Member :</string>
+    <string name="txt_studentloan">Student Loan :</string>
+    <string name="txt_parking">Parking Card :</string>
+    <string name="txt_username">Username</string>
+    <string name="txt_firstname">First Name :</string>
+    <string name="txt_lastname">Last Name :</string>
+    <string name="txt_confirmemail">Confirm Email :</string>
+    <string name="txt_confirmpassword">Confirm Password :</string>
+    <string name="txt_password">Password :</string>
+    <string name="txt_confirm">Confirm :</string>
+    <string name="txt_previous">Previous :</string>
+    <string name="txt_current">Current :</string>
+    <string name="txt_future">Future :</string>
+    <string name="txt_placeholderdate">xx/xx/xx - xx/xx/xx</string>
+    <string name="txt_shiftinput">Shift Input For:</string>
+    <string name="txt_day">Days</string>
+    <string name="txt_weekone">Week One</string>
+    <string name="txt_weektwo">Week Two</string>
+    <string name="txt_monday">Monday</string>
+    <string name="txt_tuesday">Tuesday</string>
+    <string name="txt_wednesday">Wednesday</string>
+    <string name="txt_thursday">Thursday</string>
+    <string name="txt_friday">Friday</string>
+    <string name="txt_saturday">Saturday</string>
+    <string name="txt_sunday">Sunday</string>
+    <string name="txt_breakdown">Pay Breakdown For :</string>
+
+    <string name="txt_totalhours">Total Hours :</string>
+    <string name="txt_ordinarytime">Ordinary Time :</string>
+    <string name="txt_penal25">Penal .25 :</string>
+    <string name="txt_penal5">Penal .5 :</string>
+    <string name="txt_timeandhalf">Time and a Half :</string>
+    <string name="txt_doubletime">Double Time :</string>
+    <string name="txt_stat">STAT Pay :</string>
+    <string name="txt_paygross">Gross Pay :</string>
+    <string name="txt_paynet">Net Pay :</string>
+    <string name="txt_paye">PAYE Tax :</string>
+    <string name="txt_unionfee">Union Fee :</string>
+    <string name="txt_parkingfee">Parking Fee:</string>
+    <string name="txt_employeekiwisaver">Employee KiwiSaver :</string>
+    <string name="txt_employeerkiwisaver">Employeer KiwiSaver:</string>
+    <string name="txt_placeholdervalue">$0000.00</string>
+    <string name="txt_placeholdernumber">000.00</string>
+    <string name="txt_futurepaycycles">Future Pay Cycles Available :</string>
+    <string name="txt_historypaycycles">Historical Pay Cycles Available :</string>
+
+    <string name="hnt_firstname">First Name</string>
+    <string name="hnt_lastname">Last Name</string>
+    <string name="hnt_password">Password</string>
+    <string name="hnt_email">Email</string>
+
+    <string name="dsc_logo">DHB Logo</string>
+    <string name="dsc_loading">Loading Wheel</string>
+
+    <string name="btn_login">Login</string>
+    <string name="btn_clear">Clear</string>
+    <string name="btn_signup">Sign Up</string>
+    <string name="btn_paysheets">Pay Sheets</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_information">Information</string>
+    <string name="btn_history">History</string>
+    <string name="btn_future">Future</string>
+    <string name="btn_input">Input</string>
+    <string name="btn_breakdown">Breakdown</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_empty">----</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+</resources>

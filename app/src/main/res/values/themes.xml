@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PayCalculator" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/DHB_Purple</item>
+        <item name="colorPrimaryVariant">@color/DHB_Purple</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/DHB_Teal</item>
+        <item name="colorSecondaryVariant">@color/DHB_Teal</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:windowActionBar">@color/DHB_Purple</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/DHB_Purple</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.LoadingScreenNoBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/DHB_Teal</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>
