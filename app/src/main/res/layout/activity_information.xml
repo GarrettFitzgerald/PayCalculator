@@ -7,60 +7,34 @@
     tools:context=".Information"
     android:background="@color/DHB_Teal"
     >
+
         <ImageView
             android:id="@+id/img_profilepicture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/noprofilepic"
-            android:layout_marginTop="50dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_centerHorizontal="true"
-            />
+            android:layout_marginTop="25dp"
+            android:src="@drawable/noprofilepic"/>
 
         <TextView
             android:id="@+id/txt_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/img_profilepicture"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:text="@string/txt_name"
             android:textColor="@color/white"
             android:textSize="25sp"
-            />
+            android:layout_centerHorizontal="true"
+        />
 
         <TextView
             android:id="@+id/txt_name_read"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_profilepicture"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
-            android:layout_toEndOf="@id/txt_name"
-            android:text="@string/txt_placeholder"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/txt_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_below="@+id/txt_name"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
-            android:text="@string/txt_email"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            />
-
-        <TextView
-            android:id="@+id/txt_email_read"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_name_read"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_toEndOf="@id/txt_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
             android:text="@string/txt_placeholder"
             android:textColor="@color/white"
             android:textSize="25sp" />
@@ -69,150 +43,276 @@
             android:id="@+id/txt_job"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_email"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_below="@+id/txt_name_read"
+            android:layout_marginTop="20dp"
             android:text="@string/txt_job"
             android:textColor="@color/white"
             android:textSize="25sp"
+            android:layout_centerHorizontal="true"
             />
 
         <TextView
             android:id="@+id/txt_job_read"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_email_read"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_toEndOf="@id/txt_name"
+            android:layout_below="@+id/txt_job"
+            android:layout_marginTop="5dp"
             android:text="@string/txt_placeholder"
             android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:layout_centerHorizontal="true"
+        />
 
         <TextView
             android:id="@+id/txt_grade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_job"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_below="@+id/txt_job_read"
+            android:layout_marginTop="20dp"
             android:text="@string/txt_grade"
             android:textColor="@color/white"
             android:textSize="25sp"
+            android:layout_centerHorizontal="true"
             />
 
-        <TextView
-            android:id="@+id/txt_grade_read"
+        <RadioGroup
+            android:id="@+id/rad_paygrade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/txt_name"
-            android:layout_below="@+id/txt_job_read"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/txt_placeholder"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            />
+            android:orientation="horizontal"
+            android:layout_below="@+id/txt_grade"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+        >
+                <RadioButton
+                    android:id="@+id/rad_gradeZero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zero"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_gradeOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="One"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_gradeTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Two"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_gradeThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Three"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/txt_kiwisaver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_grade"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_below="@+id/rad_paygrade"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:text="@string/txt_kiwisaver"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            />
+            android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/txt_kiwisaver_read"
+        <RadioGroup
+            android:id="@+id/rad_kiwisaver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/txt_name"
-            android:layout_below="@+id/txt_grade_read"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/txt_placeholder"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            />
+            android:orientation="horizontal"
+            android:layout_below="@+id/txt_kiwisaver"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            >
+                <RadioButton
+                    android:id="@+id/rad_kiwiZero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_kiwiThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3%"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_kiwiFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4%"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_kiwiSix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6%"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_kiwiEight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8%"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/txt_union"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_kiwisaver"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_below="@+id/rad_kiwisaver"
+            android:layout_marginTop="20dp"
             android:text="@string/txt_union"
             android:textColor="@color/white"
             android:textSize="25sp"
+            android:layout_centerHorizontal="true"
             />
 
-        <TextView
-            android:id="@+id/txt_union_read"
+        <RadioGroup
+            android:id="@+id/rad_union"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/txt_name"
-            android:layout_below="@+id/txt_kiwisaver_read"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/txt_placeholder"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            />
+            android:orientation="horizontal"
+            android:layout_below="@+id/txt_union"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            >
+                <RadioButton
+                    android:id="@+id/rad_unionYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_unionNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/txt_studentloan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_union"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_below="@+id/rad_union"
+            android:layout_marginStart="60dp"
             android:text="@string/txt_studentloan"
             android:textColor="@color/white"
             android:textSize="25sp"
-            />
+            android:layout_marginTop="20dp"
+        />
 
-        <TextView
-            android:id="@+id/txt_studentloan_read"
+        <RadioGroup
+            android:id="@+id/rad_studentLoan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/txt_name"
-            android:layout_below="@+id/txt_union_read"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/txt_placeholder"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            />
+            android:orientation="horizontal"
+            android:layout_below="@+id/txt_studentloan"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="80dp"
+            >
+                <RadioButton
+                    android:id="@+id/rad_loanYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_loanNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/txt_parking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_studentloan"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_below="@+id/rad_union"
+            android:layout_marginStart="50dp"
+            android:layout_toRightOf="@+id/txt_studentloan"
             android:text="@string/txt_parking"
             android:textColor="@color/white"
             android:textSize="25sp"
-            />
+            android:layout_marginTop="20dp"
+        />
 
-        <TextView
-            android:id="@+id/txt_parking_read"
+        <RadioGroup
+            android:id="@+id/rad_parking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/txt_name"
-            android:layout_below="@+id/txt_studentloan_read"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/txt_placeholder"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            />
+            android:orientation="horizontal"
+            android:layout_below="@+id/txt_parking"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="80dp"
+            android:layout_toEndOf="@+id/rad_studentLoan"
+            >
+                <RadioButton
+                    android:id="@+id/rad_parkingYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+                <RadioButton
+                    android:id="@+id/rad_parkingNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    />
+        </RadioGroup>
 
         <Button
             android:id="@+id/btn_topaysheets"

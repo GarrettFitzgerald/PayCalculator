@@ -48,12 +48,11 @@
             android:id="@+id/txt_currentdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/txt_current"
+            android:layout_centerHorizontal="true"
             android:text="@string/txt_placeholderdate"
             android:textColor="@color/white"
-            android:textSize="40sp"
-            />
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/txt_future"
