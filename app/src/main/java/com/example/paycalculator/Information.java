@@ -16,11 +16,15 @@ public class Information extends AppCompatActivity
 
     TextView txt_name_read;
     TextView txt_job_read;
+    RadioGroup rad_jobTitle;
     RadioGroup rad_paygrade;
     RadioGroup rad_kiwisaver;
     RadioGroup rad_union;
     RadioGroup rad_studentLoan;
     RadioGroup rad_parking;
+    RadioButton rad_orderly;
+    RadioButton rad_security;
+    RadioButton rad_supervisor;
     RadioButton rad_gradeZero;
     RadioButton rad_gradeOne;
     RadioButton rad_gradeTwo;
@@ -45,12 +49,15 @@ public class Information extends AppCompatActivity
         setContentView(R.layout.activity_information);
 
         txt_name_read = findViewById( R.id.txt_name_read);
-        txt_job_read = findViewById( R.id.txt_job_read);
+        rad_jobTitle = findViewById( R.id.rad_jobTitle);
         rad_paygrade = findViewById( R.id.rad_paygrade);
         rad_kiwisaver = findViewById( R.id.rad_kiwisaver);
         rad_union = findViewById( R.id.rad_union);
         rad_studentLoan = findViewById( R.id.rad_studentLoan);
         rad_parking = findViewById( R.id.rad_parking);
+        rad_orderly = findViewById( R.id.rad_orderly);
+        rad_security = findViewById( R.id.rad_security);
+        rad_supervisor = findViewById( R.id.rad_supervisor);
         rad_gradeZero = findViewById( R.id.rad_gradeZero);
         rad_gradeOne = findViewById( R.id.rad_gradeOne);
         rad_gradeTwo = findViewById( R.id.rad_gradeTwo);
@@ -66,10 +73,10 @@ public class Information extends AppCompatActivity
         rad_loanNo = findViewById( R.id.rad_loanNo);
         rad_parkingYes = findViewById( R.id.rad_parkingYes);
         rad_parkingNo = findViewById( R.id.rad_parkingNo);
-                btn_topaysheets = findViewById( R.id.btn_topaysheets);
+        btn_topaysheets = findViewById( R.id.btn_topaysheets);
 
         txt_name_read.setText("Garrett Fitzgerald"); //Get info from Database
-        txt_job_read.setText("Orderly"); // Get info from Database
+        rad_jobTitle.check(R.id.rad_orderly); // Get info from Database
         rad_paygrade.check(R.id.rad_gradeThree); // Get info from Database
         rad_kiwisaver.check(R.id.rad_kiwiEight); //Get info from Database
         rad_union.check(R.id.rad_unionNo); //Get info from Database
@@ -87,5 +94,149 @@ public class Information extends AppCompatActivity
                 startActivity( intentToPaySheets);
             }
         });
+    }
+
+    public void onJobTitleClicked(View view)
+    {
+        //Add cases for when JobTitle Radials are clicked
+        boolean selected = ((RadioButton) view).isChecked();
+        switch (view.getId())
+        {
+            case R.id.rad_orderly:
+                if (selected)
+                    Toast.makeText(this, "You are an Orderly", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+            case R.id.rad_security:
+                if (selected)
+                    Toast.makeText(this, "You are a Security Guard", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+            case R.id.rad_supervisor:
+                if (selected)
+                    Toast.makeText(this, "You are a Supervisor", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+        }
+    }
+
+    public void onPayGradeClicked(View view)
+    {
+        //Add cases for when PayGrade Radials are clicked
+        boolean selected = ((RadioButton) view).isChecked();
+        switch (view.getId())
+        {
+            case R.id.rad_gradeZero:
+                if(selected)
+                Toast.makeText(this, "Pay Grade Zero selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+            case R.id.rad_gradeOne:
+                if(selected)
+                    Toast.makeText(this, "Pay Grade One selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+            case R.id.rad_gradeTwo:
+                if(selected)
+                    Toast.makeText(this, "Pay Grade Two selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+            case R.id.rad_gradeThree:
+                if(selected)
+                    Toast.makeText(this, "Pay Grade Three selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+        }
+    }
+
+    public void onKiwiSaverClicked(View view)
+    {
+        //Add cases for when KiwiSaver Radials are clicked
+        boolean selected = ((RadioButton) view).isChecked();
+        switch (view.getId())
+        {
+            case R.id.rad_kiwiZero:
+                if(selected)
+                    Toast.makeText(this, "0% KiwiSaver selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+            case R.id.rad_kiwiThree:
+                if(selected)
+                    Toast.makeText(this, "3% KiwiSaver selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+            case R.id.rad_kiwiFour:
+                if(selected)
+                    Toast.makeText(this, "4% KiwiSaver selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+            case R.id.rad_kiwiSix:
+                if(selected)
+                    Toast.makeText(this, "6% KiwiSaver selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+            case R.id.rad_kiwiEight:
+                if(selected)
+                    Toast.makeText(this, "8% KiwiSaver selected", Toast.LENGTH_SHORT ).show();
+                // Update Database code here
+                break;
+        }
+    }
+
+    public void onUnionClicked(View view)
+    {
+        //Add cases for when Union Radials are clicked
+        boolean selected = ((RadioButton) view).isChecked();
+        switch (view.getId())
+        {
+            case R.id.rad_unionYes:
+                if (selected)
+                    Toast.makeText(this, "You are a Union member", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+            case R.id.rad_unionNo:
+                if (selected)
+                    Toast.makeText(this, "You are not a Union member", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+        }
+    }
+
+    public void onStudentLoanClicked(View view)
+    {
+        //Add cases for when StudentLoan Radials are clicked
+        boolean selected = ((RadioButton) view).isChecked();
+        switch (view.getId())
+        {
+            case R.id.rad_loanYes:
+                if (selected)
+                    Toast.makeText(this, "You have a Student Loan", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+            case R.id.rad_loanNo:
+                if (selected)
+                    Toast.makeText(this, "You do not have a Student Loan", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+        }
+    }
+
+    public void onParkingClicked(View view)
+    {
+        //Add cases for when StudentLoan Radials are clicked
+        boolean selected = ((RadioButton) view).isChecked();
+        switch (view.getId())
+        {
+            case R.id.rad_parkingYes:
+                if (selected)
+                    Toast.makeText(this, "You have a Parking Card", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+            case R.id.rad_parkingNo:
+                if (selected)
+                    Toast.makeText(this, "You do not have a Parking Card", Toast.LENGTH_SHORT).show();
+                // Update Database code here
+                break;
+        }
     }
 }

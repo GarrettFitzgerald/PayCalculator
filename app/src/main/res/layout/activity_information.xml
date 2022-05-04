@@ -16,17 +16,16 @@
             android:layout_marginTop="25dp"
             android:src="@drawable/noprofilepic"/>
 
-        <TextView
-            android:id="@+id/txt_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/img_profilepicture"
-            android:layout_marginTop="20dp"
-            android:text="@string/txt_name"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:layout_centerHorizontal="true"
-        />
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_profilepicture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/txt_name"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_name_read"
@@ -51,23 +50,55 @@
             android:layout_centerHorizontal="true"
             />
 
-        <TextView
-            android:id="@+id/txt_job_read"
+
+
+        <RadioGroup
+            android:id="@+id/rad_jobTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_below="@+id/txt_job"
             android:layout_marginTop="5dp"
-            android:text="@string/txt_placeholder"
-            android:textColor="@color/white"
-            android:textSize="25sp"
             android:layout_centerHorizontal="true"
-        />
+        >
+                <RadioButton
+                    android:id="@+id/rad_orderly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Orderly"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    android:onClick="onJobTitleClicked"
+                />
+                <RadioButton
+                    android:id="@+id/rad_security"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Security"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    android:onClick="onJobTitleClicked"
+                />
+                <RadioButton
+                    android:id="@+id/rad_supervisor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Supervisor"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:buttonTint="@color/white"
+                    android:onClick="onJobTitleClicked"
+                />
+        </RadioGroup>
 
-        <TextView
+
+      <TextView
             android:id="@+id/txt_grade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_job_read"
+            android:layout_below="@+id/rad_jobTitle"
             android:layout_marginTop="20dp"
             android:text="@string/txt_grade"
             android:textColor="@color/white"
@@ -92,6 +123,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onPayGradeClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_gradeOne"
@@ -101,6 +133,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onPayGradeClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_gradeTwo"
@@ -110,6 +143,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onPayGradeClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_gradeThree"
@@ -119,6 +153,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onPayGradeClicked"
                     />
         </RadioGroup>
 
@@ -150,6 +185,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onKiwiSaverClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_kiwiThree"
@@ -159,6 +195,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onKiwiSaverClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_kiwiFour"
@@ -168,6 +205,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onKiwiSaverClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_kiwiSix"
@@ -177,6 +215,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onKiwiSaverClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_kiwiEight"
@@ -186,6 +225,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onKiwiSaverClicked"
                 />
         </RadioGroup>
 
@@ -194,12 +234,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rad_kiwisaver"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="@string/txt_union"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            android:layout_centerHorizontal="true"
-            />
+            android:textSize="25sp" />
 
         <RadioGroup
             android:id="@+id/rad_union"
@@ -218,6 +257,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onUnionClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_unionNo"
@@ -227,6 +267,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onUnionClicked"
                     />
         </RadioGroup>
 
@@ -259,6 +300,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onStudentLoanClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_loanNo"
@@ -268,6 +310,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onStudentLoanClicked"
                     />
         </RadioGroup>
 
@@ -302,6 +345,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onParkingClicked"
                     />
                 <RadioButton
                     android:id="@+id/rad_parkingNo"
@@ -311,6 +355,7 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:buttonTint="@color/white"
+                    android:onClick="onParkingClicked"
                     />
         </RadioGroup>
 
@@ -320,7 +365,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="25dp"
             android:text="@string/btn_paysheets"
             android:textSize="50sp" />
 </RelativeLayout>

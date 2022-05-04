@@ -1,10 +1,12 @@
 package com.example.paycalculator;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.ActionMenuItemView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,10 +15,22 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class PaySheets extends AppCompatActivity
 {
+    // TODO Set date to last recent Monday in Array
+    LocalDateTime date = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+    Calendar cal = Calendar.getInstance();
+    DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd/MM/yy");
+
     AlertDialog.Builder dialogBuilder;
     AlertDialog dialog;
 
@@ -51,6 +65,15 @@ public class PaySheets extends AppCompatActivity
         btn_information = findViewById( R.id.btn_information);
         btn_future = findViewById( R.id.btn_future);
         btn_history = findViewById( R.id.btn_history);
+
+        txt_previousdate.setText( sdf.format( date.plusDays( -15 ) ) + " - " +
+                                  sdf.format( date.plusDays( -1 ) ) );
+
+        txt_currentdate.setText( sdf.format( date ) + " - " +
+                                 sdf.format( date.plusDays( 13 ) ) );
+
+        txt_futuredate.setText( sdf.format( date.plusDays( 14 ) ) + " - " +
+                                sdf.format( date.plusDays( 27 ) ) );
 
         btn_information.setOnClickListener(new View.OnClickListener() //Sends user to Information activity
         {
