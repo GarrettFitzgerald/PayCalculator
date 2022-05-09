@@ -11,11 +11,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class Information extends AppCompatActivity
 {
 
+    String username;
+    ArrayList<UserModal> userDetails;
+
     TextView txt_name_read;
-    TextView txt_job_read;
     RadioGroup rad_jobTitle;
     RadioGroup rad_paygrade;
     RadioGroup rad_kiwisaver;
@@ -42,11 +46,15 @@ public class Information extends AppCompatActivity
     RadioButton rad_parkingNo;
     Button btn_topaysheets;
 
+    DbHandler db = new DbHandler(Information.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
+
+        userDetails = db.getUserDetails( username );
 
         txt_name_read = findViewById( R.id.txt_name_read);
         rad_jobTitle = findViewById( R.id.rad_jobTitle);
@@ -75,13 +83,88 @@ public class Information extends AppCompatActivity
         rad_parkingNo = findViewById( R.id.rad_parkingNo);
         btn_topaysheets = findViewById( R.id.btn_topaysheets);
 
-        txt_name_read.setText("Garrett Fitzgerald"); //Get info from Database
-        rad_jobTitle.check(R.id.rad_orderly); // Get info from Database
-        rad_paygrade.check(R.id.rad_gradeThree); // Get info from Database
-        rad_kiwisaver.check(R.id.rad_kiwiEight); //Get info from Database
-        rad_union.check(R.id.rad_unionNo); //Get info from Database
-        rad_studentLoan.check(R.id.rad_loanYes); //Get info from Database
-        rad_parking.check(R.id.rad_parkingNo); //Get info from Database
+        username = getIntent().getStringExtra("Username");
+        userDetails = db.getUserDetails( username );
+
+        txt_name_read.setText(userDetails.get(0).getFirstName() + " " + userDetails.get(0).getlastName()); //Get info from Database
+
+        if(userDetails.get(0).getJobTitle() == 0)
+        {
+            rad_jobTitle.check(R.id.rad_orderly);
+        }
+        else if (userDetails.get(0).getPaygrade() == 1)
+        {
+            rad_jobTitle.check(R.id.rad_security);
+        }
+        else
+        {
+            rad_jobTitle.check(R.id.rad_supervisor);
+        }
+
+        if(userDetails.get(0).getPaygrade() == 0)
+        {
+            rad_paygrade.check(R.id.rad_gradeZero);
+        }
+        else if (userDetails.get(0).getPaygrade() == 1)
+        {
+            rad_paygrade.check(R.id.rad_gradeOne);
+        }
+        else if (userDetails.get(0).getPaygrade() == 2)
+        {
+            rad_paygrade.check(R.id.rad_gradeTwo);
+        }
+        else
+        {
+            rad_paygrade.check(R.id.rad_gradeThree);
+        }
+
+        if( userDetails.get(0).getKiwisaver() == 0)
+        {
+            rad_kiwisaver.check(R.id.rad_kiwiZero);
+        }
+        else if( userDetails.get(0).getKiwisaver() == 1)
+        {
+            rad_kiwisaver.check(R.id.rad_kiwiThree);
+        }
+        else if( userDetails.get(0).getKiwisaver() == 2)
+        {
+            rad_kiwisaver.check(R.id.rad_kiwiFour);
+        }
+        else if( userDetails.get(0).getKiwisaver() == 3)
+        {
+            rad_kiwisaver.check(R.id.rad_kiwiSix);
+        }
+        else
+        {
+            rad_kiwisaver.check(R.id.rad_kiwiEight);
+        }
+        //TODO Why arent these Radial Appearing on Load?
+        if( userDetails.get(0).getUnion() == 0)
+        {
+            rad_union.check(R.id.rad_unionNo);
+        }
+        else
+        {
+            rad_union.check(R.id.rad_unionYes);
+        }
+
+        if( userDetails.get(0).getStudentLoan() == 0)
+        {
+            rad_union.check(R.id.rad_loanNo);
+        }
+        else
+        {
+            rad_union.check(R.id.rad_loanYes);
+        }
+
+        if( userDetails.get(0).getParkingCard() == 0)
+        {
+            rad_union.check(R.id.rad_parkingNo);
+        }
+        else
+        {
+            rad_union.check(R.id.rad_parkingYes);
+        }
 
         btn_topaysheets.setOnClickListener(new View.OnClickListener()
         {

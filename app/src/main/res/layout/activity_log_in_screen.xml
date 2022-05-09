@@ -28,7 +28,7 @@
             android:layout_below="@id/img_logo"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"
-            android:hint="@string/txt_username"
+            android:hint="@string/txt_usernamelogin"
             android:inputType="text"
             android:textColor="@color/white"
             android:textSize="20sp"

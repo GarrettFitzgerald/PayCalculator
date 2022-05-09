@@ -12,7 +12,8 @@
     <string name="txt_union">Union Member :</string>
     <string name="txt_studentloan">Student Loan :</string>
     <string name="txt_parking">Parking Card :</string>
-    <string name="txt_username">Username</string>
+    <string name="txt_username">Username :</string>
+    <string name="txt_usernamelogin">Username</string>
     <string name="txt_firstname">First Name :</string>
     <string name="txt_lastname">Last Name :</string>
     <string name="txt_confirmemail">Confirm Email :</string>

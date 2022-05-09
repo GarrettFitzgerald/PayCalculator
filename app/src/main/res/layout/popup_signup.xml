@@ -10,25 +10,49 @@
         android:layout_marginTop="50dp">
 
         <TextView
-            android:id="@+id/txt_firstname"
+            android:id="@+id/txt_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
-            android:text="@string/txt_firstname"
+            android:text="@string/txt_username"
             android:textColor="@color/black"
             android:textSize="25sp"
-            />
+        />
+
+        <TextView
+            android:id="@+id/txt_generatedname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_toEndOf="@id/txt_firstname"
+            android:gravity="center"
+            android:text="xxxxxx"
+            android:textSize="25sp" />
+
+
+        <TextView
+            android:id="@+id/txt_firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_username"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/txt_firstname"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/edt_firstname"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_toEndOf="@id/txt_firstname"
             android:layout_marginStart="20dp"
-            android:hint="@string/hnt_firstname"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/txt_generatedname"
+            android:layout_toEndOf="@id/txt_firstname"
             android:gravity="center"
-            />
+            android:hint="@string/hnt_firstname" />
 
         <TextView
             android:id="@+id/txt_lastname"
@@ -58,14 +82,13 @@
             android:id="@+id/txt_passwordenter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/txt_lastname"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:text="@string/txt_password"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            />
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/edt_passwordenter"
@@ -82,14 +105,13 @@
             android:id="@+id/txt_passwordconfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/txt_passwordenter"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="@string/txt_confirm"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            />
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/edt_passwordconfirm"
@@ -102,30 +124,6 @@
             android:gravity="center"
             />
 
-        <TextView
-            android:id="@+id/txt_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_passwordconfirm"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
-            android:text="@string/txt_email"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            />
-
-        <EditText
-            android:id="@+id/edt_email"
-            android:layout_width="210dp"
-            android:layout_height="75dp"
-            android:layout_below="@+id/edt_passwordconfirm"
-            android:layout_toEndOf="@id/txt_email"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:hint="@string/hnt_email"
-            android:gravity="center"
-            />
 
         <Button
             android:id="@+id/btn_confirm"
@@ -133,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="@string/btn_confirm"
-            android:layout_below="@+id/edt_email"
+            android:layout_below="@+id/edt_passwordconfirm"
             android:textSize="25sp"
             android:layout_marginTop="30dp"
             />
@@ -147,8 +145,6 @@
             android:layout_below="@+id/btn_confirm"
             android:textSize="25sp"
             />
-
-
 
     </RelativeLayout>
 
