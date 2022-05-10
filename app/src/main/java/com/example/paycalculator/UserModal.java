@@ -19,10 +19,10 @@ public class UserModal
     public UserModal() // Constructor
     {
         this.id = -1;
-        this.username = "adxmin";
-        this.firstName = "ad";
-        this.lastName = "min";
-        this.password = "123456";
+        this.username = "";
+        this.firstName = "";
+        this.lastName = "";
+        this.password = "";
         this.jobTitle = 0;
         this.payGrade = 0;
         this.kiwisaver = 0;

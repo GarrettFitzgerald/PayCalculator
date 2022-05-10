@@ -20,19 +20,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-
-        //Generating Mondays for app
-        LocalDate startDate = LocalDate.of(2022, 1,3);
-        LocalDate endDate = LocalDate.of(2022, 12,31);
-
-        List<LocalDate> newCycle = new ArrayList<>();
-
-        while (startDate.isBefore(endDate))
-        {
-            newCycle.add(startDate);
-            startDate = startDate.plusDays(14);
-        }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

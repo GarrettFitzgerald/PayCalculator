@@ -23,57 +23,57 @@
             android:textColor="@color/white"
             android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/txt_previousdate"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_previousdate"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_previous"
             android:layout_centerHorizontal="true"
             android:text="@string/txt_placeholderdate"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="35sp" />
 
         <TextView
             android:id="@+id/txt_current"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/txt_previousdate"
+            android:layout_below="@id/btn_previousdate"
             android:layout_marginTop="75dp"
             android:text="@string/txt_current"
             android:textColor="@color/white"
             android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/txt_currentdate"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_currentdate"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_current"
             android:layout_centerHorizontal="true"
             android:text="@string/txt_placeholderdate"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="35sp" />
 
         <TextView
             android:id="@+id/txt_future"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/txt_currentdate"
+            android:layout_below="@id/btn_currentdate"
             android:layout_marginTop="75dp"
             android:text="@string/txt_future"
             android:textColor="@color/white"
             android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/txt_futuredate"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_futuredate"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/txt_future"
             android:text="@string/txt_placeholderdate"
             android:textColor="@color/white"
-            android:textSize="40sp"
+            android:textSize="35sp"
             />
 
     </RelativeLayout>

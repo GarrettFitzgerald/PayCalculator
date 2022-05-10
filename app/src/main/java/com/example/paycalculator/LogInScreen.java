@@ -84,7 +84,7 @@ public class LogInScreen extends AppCompatActivity
                     {
                         Toast.makeText( LogInScreen.this, "Login Succesful", Toast.LENGTH_SHORT).show();
                         Intent intentToInformation = new Intent( LogInScreen.this, Information.class);
-                        intentToInformation.putExtra("Username", username);
+                        intentToInformation.putExtra("Username", username );
                         startActivity(intentToInformation);
                     }
                     else

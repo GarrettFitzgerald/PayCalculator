@@ -55,12 +55,15 @@ public class ShiftInput extends AppCompatActivity
         btn_sundayone = findViewById(R.id.btn_sundayone);
         btn_sundaytwo = findViewById(R.id.btn_sundaytwo);
 
+        String username = getIntent().getStringExtra("Username");
+
         btn_information.setOnClickListener(new View.OnClickListener() //Sends user to Information activity
         {
             @Override
             public void onClick(View view)
             {
                 Intent intentToInformation = new Intent(ShiftInput.this, Information.class);
+                intentToInformation.putExtra("Username", username );
                 startActivity( intentToInformation );
             }
         });
@@ -71,6 +74,7 @@ public class ShiftInput extends AppCompatActivity
             public void onClick(View view)
             {
                Intent intentToBreakdown = new Intent(ShiftInput.this, Breakdown.class);
+               intentToBreakdown.putExtra("Username", username );
                startActivity(intentToBreakdown);
             }
         });

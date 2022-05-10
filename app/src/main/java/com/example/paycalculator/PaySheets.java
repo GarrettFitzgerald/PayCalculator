@@ -20,16 +20,23 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class PaySheets extends AppCompatActivity
 {
     // TODO Set date to last recent Monday in Array
-    LocalDateTime date = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-    Calendar cal = Calendar.getInstance();
     DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd/MM/yy");
+    LocalDate startDate;
+    LocalDate endDate;
+    LocalDate currentDate;
+    LocalDate currentCycle;
+
+    LocalDateTime date = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+
 
     AlertDialog.Builder dialogBuilder;
     AlertDialog dialog;
@@ -37,10 +44,11 @@ public class PaySheets extends AppCompatActivity
     Button btn_input;
     Button btn_breakdown;
     Button btn_back;
+    TextView txt_dateselected;
 
-    TextView txt_previousdate;
-    TextView txt_currentdate;
-    TextView txt_futuredate;
+    Button btn_previousdate;
+    Button btn_currentdate;
+    Button btn_futuredate;
 
     Button btn_information;
     Button btn_future;
@@ -59,21 +67,42 @@ public class PaySheets extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay_sheets);
 
-        txt_previousdate = findViewById(R.id.txt_previousdate);
-        txt_currentdate = findViewById(R.id.txt_currentdate);
-        txt_futuredate = findViewById(R.id.txt_futuredate);
+        btn_previousdate = findViewById(R.id.btn_previousdate);
+        btn_currentdate = findViewById(R.id.btn_currentdate);
+        btn_futuredate = findViewById(R.id.btn_futuredate);
         btn_information = findViewById( R.id.btn_information);
         btn_future = findViewById( R.id.btn_future);
         btn_history = findViewById( R.id.btn_history);
 
-        txt_previousdate.setText( sdf.format( date.plusDays( -15 ) ) + " - " +
-                                  sdf.format( date.plusDays( -1 ) ) );
+        String username = getIntent().getStringExtra("Username");
 
-        txt_currentdate.setText( sdf.format( date ) + " - " +
-                                 sdf.format( date.plusDays( 13 ) ) );
+        startDate = LocalDate.of(2022, 1,3);
+        endDate = LocalDate.of(2022, 12,31);
+        currentDate = LocalDate.now();
 
-        txt_futuredate.setText( sdf.format( date.plusDays( 14 ) ) + " - " +
-                                sdf.format( date.plusDays( 27 ) ) );
+        List<LocalDate> newCycle = new ArrayList<>();
+
+        while (startDate.isBefore(endDate))
+        {
+            newCycle.add(startDate);
+            startDate = startDate.plusDays(14);
+        }
+
+        int i = 0;
+        do
+        {
+            currentCycle = newCycle.get(i);
+            i++;
+        } while (currentDate.isAfter(newCycle.get(i)));
+
+        btn_previousdate.setText( sdf.format( currentCycle.plusDays( -14 ) ) + " - " +
+                                  sdf.format( currentCycle.plusDays( -1 ) ) );
+
+        btn_currentdate.setText( sdf.format( currentCycle ) + " - " +
+                                 sdf.format( currentCycle.plusDays( 13 ) ) );
+
+        btn_futuredate.setText( sdf.format( currentCycle.plusDays( 14 ) ) + " - " +
+                                sdf.format( currentCycle.plusDays( 27 ) ) );
 
         btn_information.setOnClickListener(new View.OnClickListener() //Sends user to Information activity
         {
@@ -81,6 +110,7 @@ public class PaySheets extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intentToInformation = new Intent(PaySheets.this, Information.class);
+                intentToInformation.putExtra("Username", username );
                 startActivity( intentToInformation );
             }
         });
@@ -103,30 +133,31 @@ public class PaySheets extends AppCompatActivity
             }
         });
 
-        txt_previousdate.setOnClickListener(new View.OnClickListener() //Creates popup for previous pay sheet
+        btn_previousdate.setOnClickListener(new View.OnClickListener() //Creates popup for previous pay sheet
         {
             @Override
             public void onClick(View view)
             {
-                createNewInputBreakdownDialog();
+                createNewInputBreakdownDialog( currentCycle.plusDays( -14 ));
             }
         });
 
-        txt_currentdate.setOnClickListener(new View.OnClickListener() //Creates popup for current pay sheet
+        btn_currentdate.setOnClickListener(new View.OnClickListener() //Creates popup for current pay sheet
         {
             @Override
             public void onClick(View view)
             {
-                createNewInputBreakdownDialog();
+                //TODO Check if entry matching user id and startdate exists
+                createNewInputBreakdownDialog( currentCycle );
             }
         });
 
-        txt_futuredate.setOnClickListener(new View.OnClickListener() //Creates popup for next pay sheet
+        btn_futuredate.setOnClickListener(new View.OnClickListener() //Creates popup for next pay sheet
         {
             @Override
             public void onClick(View view)
             {
-                createNewInputBreakdownDialog();
+                createNewInputBreakdownDialog( currentCycle.plusDays( 14 ));
             }
         });
     }
@@ -161,7 +192,7 @@ public class PaySheets extends AppCompatActivity
         dialog.show();
     };
 
-    public void createNewInputBreakdownDialog() //Input and Breakdown Popup
+    public void createNewInputBreakdownDialog( LocalDate displayDate ) //Input and Breakdown Popup
     {
         dialogBuilder = new AlertDialog.Builder( PaySheets.this );
         View inputBreakdownPopUpView = getLayoutInflater().inflate( R.layout.popup_inputbreakdown, null );
@@ -169,6 +200,13 @@ public class PaySheets extends AppCompatActivity
         btn_back = inputBreakdownPopUpView.findViewById( R.id.btn_back );
         btn_input = inputBreakdownPopUpView.findViewById( R.id.btn_input );
         btn_breakdown = inputBreakdownPopUpView.findViewById( R.id.btn_breakdown);
+        txt_dateselected = inputBreakdownPopUpView.findViewById(R.id.txt_dateselected);
+
+                DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd/MM/yy");
+        txt_dateselected.setText( sdf.format( displayDate ) + " - " +
+                                  sdf.format( displayDate.plusDays( 13 ) ) );
+
+        String username = getIntent().getStringExtra("Username");
 
         dialogBuilder.setView( inputBreakdownPopUpView );
         dialog = dialogBuilder.create();
@@ -189,6 +227,7 @@ public class PaySheets extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intentGoToShiftInput = new Intent ( PaySheets.this, ShiftInput.class);
+                intentGoToShiftInput.putExtra("Username", username );
                 startActivity( intentGoToShiftInput);
                             }
         });
@@ -199,6 +238,7 @@ public class PaySheets extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intentGoToBreakdown = new Intent ( PaySheets.this, Breakdown.class);
+                intentGoToBreakdown.putExtra("Username", username );
                 startActivity( intentGoToBreakdown);
             }
         });
