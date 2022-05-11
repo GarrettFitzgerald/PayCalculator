@@ -14,11 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Information extends AppCompatActivity
 {
-    ArrayList<UserModal> userDetails;
+    HashMap<String, String> userDetails;
 
+    String username;
+    int currentID;
     int jobTitle;
     int payGrade;
     int kiwisaver;
@@ -88,17 +91,17 @@ public class Information extends AppCompatActivity
         rad_parkingNo = findViewById( R.id.rad_parkingNo);
         btn_topaysheets = findViewById( R.id.btn_topaysheets);
 
-        String username = getIntent().getStringExtra("Username");
-        userDetails = db.getUserDetails(username);
+        currentID = getIntent().getIntExtra("CurrentID", 0);
+        userDetails = db.getUserDetails( currentID );
 
-        jobTitle = userDetails.get(0).getJobTitle();
-        payGrade = userDetails.get(0).getPaygrade();
-        kiwisaver = userDetails.get(0).getKiwisaver();
-        union = userDetails.get(0).getUnion();
-        studentLoan = userDetails.get(0).getStudentLoan();
-        parkingCard = userDetails.get(0).getParkingCard();
+        jobTitle = Integer.parseInt(userDetails.get("jobtitle"));
+        payGrade = Integer.parseInt(userDetails.get("paygrade"));
+        kiwisaver = Integer.parseInt(userDetails.get("kiwisaver"));
+        union = Integer.parseInt(userDetails.get("union"));
+        studentLoan = Integer.parseInt(userDetails.get("studentloan"));
+        parkingCard = Integer.parseInt(userDetails.get("parkingcard"));
 
-        txt_name_read.setText(userDetails.get(0).getFirstName() + " " + userDetails.get(0).getlastName()); //Get info from Database
+        txt_name_read.setText(userDetails.get("firstname") + " " + userDetails.get("lastname")); //Get info from Database
 
         if( jobTitle == 0)
         {
@@ -151,7 +154,6 @@ public class Information extends AppCompatActivity
             rad_kiwisaver.check(R.id.rad_kiwiEight);
         }
 
-        //TODO Why arent these Radial Appearing on Load?
         if( union == 0)
         {
             rad_union.check(R.id.rad_unionNo);
@@ -185,9 +187,9 @@ public class Information extends AppCompatActivity
             public void onClick(View view)
             {
                 //Before loading the intent, send data from options to the database
-                db.updateUserDetails( username, jobTitle, payGrade, kiwisaver, union, studentLoan, parkingCard);
+                db.updateUserDetails( currentID, jobTitle, payGrade, kiwisaver, union, studentLoan, parkingCard);
                 Intent intentToPaySheets = new Intent( Information.this, PaySheets.class);
-                intentToPaySheets.putExtra("Username", username );
+                intentToPaySheets.putExtra("CurrentID", currentID );
                 startActivity( intentToPaySheets );
             }
         });

@@ -16,7 +16,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -32,6 +31,6 @@ public class MainActivity extends AppCompatActivity
             {
                 startActivity( intentToLoginScreen );
             }
-        }, 5000);
+        }, 0);
     }
 }

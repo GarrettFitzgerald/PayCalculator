@@ -18,7 +18,7 @@ public class UserModal
     // Constructors
     public UserModal() // Constructor
     {
-        this.id = -1;
+        this.id = 0;
         this.username = "";
         this.firstName = "";
         this.lastName = "";
@@ -30,6 +30,7 @@ public class UserModal
         this.studentLoan = 0;
         this.parkingCard = 0;
     }
+
     public UserModal( int id, String username, String firstName, String lastName, String password ) // Constructor used when making a new account
     {
         this.id = id;
@@ -45,14 +46,14 @@ public class UserModal
         this.parkingCard = 0;
     }
 
-    public UserModal( String firstName, String lastName, int jobTitle, int payGrade, int kiwisaver,
+    public UserModal( int id, String firstName, String lastName, int jobTitle, int payGrade, int kiwisaver,
                       int union, int studentLoan, int parkingCard)
     {
-        this.id = -1;
-        this.username = "adxmin";
+        this.id = id;
+        this.username = "";
         this.firstName = firstName;
         this.lastName = lastName;
-        this.password = "123456";
+        this.password = "";
         this.jobTitle = jobTitle;
         this.payGrade = payGrade;
         this.kiwisaver = kiwisaver;

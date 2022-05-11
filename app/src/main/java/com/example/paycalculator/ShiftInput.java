@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.time.LocalDate;
+import java.util.HashMap;
 
 public class ShiftInput extends AppCompatActivity
 {
@@ -55,7 +59,27 @@ public class ShiftInput extends AppCompatActivity
         btn_sundayone = findViewById(R.id.btn_sundayone);
         btn_sundaytwo = findViewById(R.id.btn_sundaytwo);
 
-        String username = getIntent().getStringExtra("Username");
+        int currentID = getIntent().getIntExtra("CurrentID", 0);
+        HashMap<String, String> tableDetails = (HashMap<String, String>) getIntent().getSerializableExtra("tabledetails");
+        //Toast.makeText(this, "Start Date is: " + tableDetails.get("startdate"), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Monday is : " + tableDetails.get("W1_Monday"), Toast.LENGTH_SHORT).show();
+        //LocalDate startDate = tableDetails.get("startdate");
+
+//        txt_date.setText( startDate + " - " + startDate.plusDays(13));
+        btn_mondayone.setText("");
+        btn_mondaytwo.setText("");
+        btn_tuesdayone.setText("");
+        btn_tuesdaytwo.setText("");
+        btn_wednesdayone.setText("");
+        btn_wednesdaytwo.setText("");
+        btn_thursdayone.setText("");
+        btn_thursdaytwo.setText("");
+        btn_fridayone.setText("");
+        btn_fridaytwo.setText("");
+        btn_saturdayone.setText("");
+        btn_saturdaytwo.setText("");
+        btn_sundayone.setText("");
+        btn_sundaytwo.setText("");
 
         btn_information.setOnClickListener(new View.OnClickListener() //Sends user to Information activity
         {
@@ -63,7 +87,7 @@ public class ShiftInput extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intentToInformation = new Intent(ShiftInput.this, Information.class);
-                intentToInformation.putExtra("Username", username );
+                intentToInformation.putExtra("CurrentID", currentID );
                 startActivity( intentToInformation );
             }
         });
@@ -74,7 +98,7 @@ public class ShiftInput extends AppCompatActivity
             public void onClick(View view)
             {
                Intent intentToBreakdown = new Intent(ShiftInput.this, Breakdown.class);
-               intentToBreakdown.putExtra("Username", username );
+               intentToBreakdown.putExtra("CurrentID", currentID );
                startActivity(intentToBreakdown);
             }
         });

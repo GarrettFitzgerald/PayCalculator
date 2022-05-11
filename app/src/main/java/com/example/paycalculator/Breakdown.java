@@ -21,7 +21,8 @@ public class Breakdown extends AppCompatActivity
         btn_input = findViewById(R.id.btn_input);
         btn_information = findViewById(R.id.btn_information);
 
-        String username = getIntent().getStringExtra("Username");
+        int currentID = getIntent().getIntExtra("CurrentID", 0);
+
 
         btn_input.setOnClickListener(new View.OnClickListener()
         {
@@ -29,7 +30,7 @@ public class Breakdown extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intentToInput = new Intent(Breakdown.this, ShiftInput.class);
-                intentToInput.putExtra("Username", username );
+                intentToInput.putExtra("CurrentID", currentID );
                 startActivity(intentToInput);
             }
         });
@@ -40,7 +41,7 @@ public class Breakdown extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intentToInformation = new Intent(Breakdown.this, Information.class);
-                intentToInformation.putExtra("Username", username );
+                intentToInformation.putExtra("CurrentID", currentID);
                 startActivity(intentToInformation);
             }
         });

@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LogInScreen extends AppCompatActivity
@@ -82,9 +83,11 @@ public class LogInScreen extends AppCompatActivity
                     Boolean loginCheck = db.loginCheck( username, password);
                     if( loginCheck == true )
                     {
+                        int currentID = db.getCurrentUserID( username );
+                        Toast.makeText( LogInScreen.this, "CurrentID = " + currentID, Toast.LENGTH_SHORT).show();
                         Toast.makeText( LogInScreen.this, "Login Succesful", Toast.LENGTH_SHORT).show();
                         Intent intentToInformation = new Intent( LogInScreen.this, Information.class);
-                        intentToInformation.putExtra("Username", username );
+                        intentToInformation.putExtra("CurrentID", currentID );
                         startActivity(intentToInformation);
                     }
                     else

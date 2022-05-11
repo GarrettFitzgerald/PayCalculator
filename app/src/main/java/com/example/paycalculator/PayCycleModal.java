@@ -91,7 +91,7 @@ public class PayCycleModal
         this.weekTwo_Friday = WeekTwo_Friday;
         this.weekTwo_Saturday = WeekTwo_Saturday;
         this.weekTwo_Sunday = WeekTwo_Sunday;
-    } // Initializing with Date and IDs
+    } // Updating the table
 
     //Properties
 
