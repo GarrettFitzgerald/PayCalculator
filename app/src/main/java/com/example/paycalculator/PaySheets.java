@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -39,7 +40,6 @@ public class PaySheets extends AppCompatActivity
     LocalDate toSendCycle;
 
     LocalDateTime date = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-    HashMap<String, String> tableDetails;
 
     AlertDialog.Builder dialogBuilder;
     AlertDialog dialog;
@@ -116,21 +116,6 @@ public class PaySheets extends AppCompatActivity
             }
         });
 
-        btn_history.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createNewHistoryShiftsDialog();
-            }
-        });
-
-        btn_future.setOnClickListener(new View.OnClickListener() //Loads up display with future pay sheets
-        {
-            @Override
-            public void onClick(View view) {
-                createNewFutureShiftDialog();
-            }
-        });
-
         btn_currentdate.setOnClickListener(new View.OnClickListener() //Creates popup for current pay sheet
         {
             @Override
@@ -140,40 +125,29 @@ public class PaySheets extends AppCompatActivity
             }
         });
 
+        btn_previousdate.setOnClickListener(new View.OnClickListener() //Creates popup for previous pay sheet
+        {
+            @Override
+            public void onClick(View view) {
+                toSendCycle = currentCycle.plusDays(-14);
+                createNewInputBreakdownDialog(toSendCycle);
+            }
+        });
+
+        btn_futuredate.setOnClickListener(new View.OnClickListener() //Creates popup for next pay sheet
+        {
+            @Override
+            public void onClick(View view)
+            {
+                toSendCycle = currentCycle.plusDays( 14 );
+                createNewInputBreakdownDialog( toSendCycle );
+            }
+        });
     }
-    public void createNewHistoryShiftsDialog()
-    {
-        dialogBuilder = new AlertDialog.Builder( PaySheets.this);
-        View otherShiftsSelecter = getLayoutInflater().inflate( R.layout.popup_historyshifts, null );
 
-        shiftList = otherShiftsSelecter.findViewById( R.id.list_shifts);
-        ArrayAdapter<String> arr;
-        arr = new ArrayAdapter<String>( this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, shifts );
-        shiftList.setAdapter(arr);
-
-        dialogBuilder.setView( otherShiftsSelecter );
-        dialog = dialogBuilder.create();
-        dialog.show();
-    }
-
-    public void createNewFutureShiftDialog()
-    {
-        dialogBuilder = new AlertDialog.Builder( PaySheets.this);
-        View otherShiftsSelecter = getLayoutInflater().inflate( R.layout.popup_futureshifts, null );
-
-        shiftList = otherShiftsSelecter.findViewById( R.id.list_shifts);
-        ArrayAdapter<String> arr;
-        arr = new ArrayAdapter<String>( this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, shifts );
-        shiftList.setAdapter(arr);
-
-        dialogBuilder.setView( otherShiftsSelecter );
-        dialog = dialogBuilder.create();
-        dialog.show();
-    };
-
-    //TODO Place holder for new tables
     public void createNewInputBreakdownDialog( LocalDate displayDate ) //Input and Breakdown Popup
     {
+        HashMap<String, String> tableDetails;
         dialogBuilder = new AlertDialog.Builder( PaySheets.this );
         View inputBreakdownPopUpView = getLayoutInflater().inflate( R.layout.popup_inputbreakdown, null );
 
@@ -192,10 +166,7 @@ public class PaySheets extends AppCompatActivity
         {
             // Load the table
             tableDetails = db.getPayCycleTable( currentID, displayDate);
-
-            Intent intentGoToShiftInput = new Intent ( PaySheets.this, ShiftInput.class);
-            intentGoToShiftInput.putExtra("tabledetails", tableDetails );
-            startActivity( intentGoToShiftInput);
+            Toast.makeText(PaySheets.this, "Database Read",Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -213,17 +184,16 @@ public class PaySheets extends AppCompatActivity
 
             DbHandler dbHandler = new DbHandler(PaySheets.this);
             dbHandler.insertTableDetails(cycle);
-
-            //Toast.makeText(PaySheets.this, "" + currentID, Toast.LENGTH_SHORT).show();
-            //Toast.makeText(PaySheets.this, "" + displayDate, Toast.LENGTH_SHORT).show();
+            Toast.makeText(PaySheets.this, "Database Created",Toast.LENGTH_SHORT).show();
 
             //Load the table
             tableDetails = db.getPayCycleTable( currentID, displayDate);
-
-            dialogBuilder.setView( inputBreakdownPopUpView );
-            dialog = dialogBuilder.create();
-            dialog.show();
+            Toast.makeText(PaySheets.this, "Database Read",Toast.LENGTH_SHORT).show();
         }
+
+        dialogBuilder.setView( inputBreakdownPopUpView );
+        dialog = dialogBuilder.create();
+        dialog.show();
 
         btn_back.setOnClickListener(new View.OnClickListener()
         {
@@ -233,18 +203,18 @@ public class PaySheets extends AppCompatActivity
                 dialog.dismiss();
             }
         });
-        //TODO THIS IS WHERE THE DATA TRANSMIT ERROR IS BEDTIME
+
+        HashMap<String, String> finalTableDetails = tableDetails;
         btn_input.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
                 Intent intentGoToShiftInput = new Intent ( PaySheets.this, ShiftInput.class);
-                Toast.makeText(PaySheets.this, "" + tableDetails.get(currentID), Toast.LENGTH_SHORT).show();
-                intentGoToShiftInput.putExtra("tabledetails", tableDetails);
+                intentGoToShiftInput.putExtra("tabledetails", (Serializable) finalTableDetails);
                 intentGoToShiftInput.putExtra("CurrentID", currentID );
                 startActivity( intentGoToShiftInput);
-                            }
+            }
         });
 
         btn_breakdown.setOnClickListener(new View.OnClickListener()

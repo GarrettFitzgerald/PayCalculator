@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Please Select a Shift"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/centre"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@id/txt_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/btn_0000"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/centre"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/centre"
+        android:text="0000" />
+
+    <Button
+        android:id="@+id/btn_0630"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/centre"
+        android:layout_toRightOf="@id/centre"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="20dp"
+        android:text="0630"
+        />
+    <Button
+        android:id="@+id/btn_0700"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_0000"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@id/centre"
+        android:layout_marginRight="20dp"
+        android:text="0700"
+        />
+
+    <Button
+        android:id="@+id/btn_0730"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_0630"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/centre"
+        android:layout_marginLeft="20dp"
+        android:text="0730"
+        />
+
+    <Button
+        android:id="@+id/btn_0800"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_0700"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@id/centre"
+        android:layout_marginRight="20dp"
+        android:text="0800"
+        />
+
+    <Button
+        android:id="@+id/btn_0830"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_0730"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/centre"
+        android:layout_marginLeft="20dp"
+        android:text="0830"
+        />
+
+    <Button
+        android:id="@+id/btn_0900"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_0800"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@id/centre"
+        android:layout_marginRight="20dp"
+        android:text="0900"
+        />
+
+    <Button
+        android:id="@+id/btn_1000"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_0830"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/centre"
+        android:layout_marginLeft="20dp"
+        android:text="1000"
+        />
+
+    <Button
+        android:id="@+id/btn_1100"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_0900"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@id/centre"
+        android:layout_marginRight="20dp"
+        android:text="1100"
+        />
+
+    <Button
+        android:id="@+id/btn_1200"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_1000"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/centre"
+        android:layout_marginLeft="20dp"
+        android:text="1200"
+        />
+
+    <Button
+        android:id="@+id/btn_1530"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_1100"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@id/centre"
+        android:layout_marginRight="20dp"
+        android:text="1530"
+        />
+
+    <Button
+        android:id="@+id/btn_1600"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_1200"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/centre"
+        android:layout_marginLeft="20dp"
+        android:text="1600"
+        />
+
+    <Button
+        android:id="@+id/btn_1700"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_1530"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@id/centre"
+        android:layout_marginRight="20dp"
+        android:text="1700"
+        />
+
+    <Button
+        android:id="@+id/btn_1800"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_1600"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/centre"
+        android:layout_marginLeft="20dp"
+        android:text="1800"
+        />
+
+    <Button
+        android:id="@+id/btn_2000"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_1700"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@id/centre"
+        android:layout_marginRight="20dp"
+        android:text="2000"
+        />
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btn_1800"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/centre"
+        android:layout_marginLeft="20dp"
+        android:text="----"
+        android:textSize="10dp"
+        />
+
+
+</RelativeLayout>

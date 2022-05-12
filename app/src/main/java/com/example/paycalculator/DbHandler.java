@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,7 +17,7 @@ public class DbHandler extends SQLiteOpenHelper
 {
 
     private static final String DB_NAME = "payCalcDb";
-    private static final int DB_VERSION = 15;
+    private static final int DB_VERSION = 17;
 
     private static final String TABLE_NAME = "users";
     private static final String USER_PK = "userPK";
@@ -125,6 +126,33 @@ public class DbHandler extends SQLiteOpenHelper
         db.close();
     }
 
+    public void insertTableDetails( PayCycleModal payCycleModal )
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(ID_USERS, payCycleModal.getIdUser());
+        values.put(START_DATE, payCycleModal.getStartDate().toString());
+        values.put(WEEK1_MON, payCycleModal.getWeekOne_Monday());
+        values.put(WEEK1_TUES, payCycleModal.getWeekOne_Tuesday());
+        values.put(WEEK1_WED, payCycleModal.getWeekOne_Wednesday());
+        values.put(WEEK1_THURS, payCycleModal.getWeekOne_Thursday());
+        values.put(WEEK1_FRI, payCycleModal.getWeekOne_Friday());
+        values.put(WEEK1_SAT, payCycleModal.getWeekOne_Saturday());
+        values.put(WEEK1_SUN, payCycleModal.getWeekOne_Sunday());
+        values.put(WEEK2_MON, payCycleModal.getWeekTwo_Monday());
+        values.put(WEEK2_TUES, payCycleModal.getWeekTwo_Tuesday());
+        values.put(WEEK2_WED, payCycleModal.getWeekTwo_Wednesday());
+        values.put(WEEK2_THURS, payCycleModal.getWeekTwo_Thursday());
+        values.put(WEEK2_FRI, payCycleModal.getWeekTwo_Friday());
+        values.put(WEEK2_SAT, payCycleModal.getWeekTwo_Saturday());
+        values.put(WEEK2_SUN, payCycleModal.getWeekTwo_Sunday());
+
+        long newRowID = db.insert(TABLE2_NAME, null, values);
+
+        db.close();
+    }
+
     public Boolean loginCheck( String username, String password )
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -143,18 +171,17 @@ public class DbHandler extends SQLiteOpenHelper
         }
     }
 
-    public int getCurrentUserID( String username)
+    public int getCurrentUserID( String username )
     {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM users WHERE username = ?";
         Cursor c = db.rawQuery(query, new String[] {username});
 
-        int currentID = 1;
+        int currentID = 0;
 
-        c.moveToFirst();
-        while(c.moveToNext())
+        if(c != null && c.moveToFirst())
         {
-            currentID = c.getInt(1);
+            currentID = c.getInt(0);
         }
         c.close();
 
@@ -200,11 +227,40 @@ public class DbHandler extends SQLiteOpenHelper
         db.update(TABLE_NAME, contentValues, USER_PK + " = ?", new String[] {String.valueOf(currentID)});
     }
 
-    public Boolean checkPayCycleExists( int currentID, LocalDate cycleCheck )
+    public void updatePayCycleDetails( int currentID, LocalDate currentCycle, String mondayone,
+                                       String tuesdayone, String wednesdayone, String thursdayone,
+                                       String fridayone, String saturdayone, String sundayone,
+                                       String mondaytwo, String tuesdaytwo, String wednesdaytwo,
+                                       String thursdaytwo, String fridaytwo, String saturdaytwo,
+                                       String sundaytwo)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT userid, startdate FROM paycycles WHERE userid = " + currentID + " AND startdate = " + cycleCheck;
-        Cursor c = db.rawQuery(query, null);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(WEEK1_MON, mondayone);
+        contentValues.put(WEEK1_TUES, tuesdayone);
+        contentValues.put(WEEK1_WED, wednesdayone);
+        contentValues.put(WEEK1_THURS, thursdayone);
+        contentValues.put(WEEK1_FRI, fridayone);
+        contentValues.put(WEEK1_SAT, saturdayone);
+        contentValues.put(WEEK1_SUN, sundayone);
+        contentValues.put(WEEK2_MON, mondaytwo);
+        contentValues.put(WEEK2_TUES, tuesdaytwo);
+        contentValues.put(WEEK2_WED, wednesdaytwo);
+        contentValues.put(WEEK2_THURS, thursdaytwo);
+        contentValues.put(WEEK2_FRI, fridaytwo);
+        contentValues.put(WEEK2_SAT, saturdaytwo);
+        contentValues.put(WEEK2_SUN, sundaytwo);
+
+        db.update(TABLE2_NAME, contentValues, "userid = " + currentID + " AND startdate = ?" ,
+                  new String[] {currentCycle.toString()});
+    }
+
+    public Boolean checkPayCycleExists( int currentID, LocalDate cycleCheck )
+    {
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT userid, startdate FROM paycycles WHERE userid = " + currentID + " AND startdate = ?";
+        Cursor c = db.rawQuery(query, new String[]{ cycleCheck.toString()} );
 
         if(c.getCount() > 0 )
         {
@@ -216,25 +272,13 @@ public class DbHandler extends SQLiteOpenHelper
         }
     }
 
-    public void insertTableDetails( PayCycleModal payCycleModal )
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(ID_USERS, payCycleModal.getIdUser());
-        values.put(START_DATE, payCycleModal.getStartDate().toString());
-
-        long newRowID = db.insert(TABLE2_NAME, null, values);
-        db.close();
-    }
-
     @SuppressLint("Range")
     public HashMap<String, String> getPayCycleTable( int currentID, LocalDate currentCycle )
     {
         SQLiteDatabase db = this.getWritableDatabase();
         HashMap<String, String> tableDetails = new HashMap<>();
-        String query = "SELECT * FROM paycycles WHERE userID = " + currentID + " and startDate = " + currentCycle;
-        Cursor c = db.rawQuery(query, null);
+        String query = "SELECT * FROM paycycles WHERE userID = " + currentID + " AND startdate = ?";
+        Cursor c = db.rawQuery(query, new String[]{ currentCycle.toString()});
 
         if(c != null && c.moveToNext())
         {

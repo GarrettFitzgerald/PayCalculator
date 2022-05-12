@@ -84,6 +84,10 @@ public class LogInScreen extends AppCompatActivity
                     if( loginCheck == true )
                     {
                         int currentID = db.getCurrentUserID( username );
+
+                        Toast.makeText(LogInScreen.this, username, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LogInScreen.this, password, Toast.LENGTH_SHORT).show();
+
                         Toast.makeText( LogInScreen.this, "CurrentID = " + currentID, Toast.LENGTH_SHORT).show();
                         Toast.makeText( LogInScreen.this, "Login Succesful", Toast.LENGTH_SHORT).show();
                         Intent intentToInformation = new Intent( LogInScreen.this, Information.class);
@@ -228,6 +232,7 @@ public class LogInScreen extends AppCompatActivity
                     {
                         Toast.makeText(LogInScreen.this, "Error creating Account", Toast.LENGTH_SHORT).show();
                     }
+
                     DbHandler dbHandler = new DbHandler(LogInScreen.this);
                     dbHandler.insertUserDetails(user);
                     dialog.dismiss();
