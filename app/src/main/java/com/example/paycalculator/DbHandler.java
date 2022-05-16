@@ -18,7 +18,7 @@ public class DbHandler extends SQLiteOpenHelper
 
     private static final String DB_NAME = "payCalcDb";
     private static final int DB_VERSION = 19;
-
+;
     private static final String TABLE_NAME = "users";
     private static final String USER_PK = "userPK";
     private static final String USER_COL = "username";
