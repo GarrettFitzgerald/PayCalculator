@@ -213,6 +213,7 @@
             android:textSize="25sp"
         />
         //Headings on the right
+
         <TextView
             android:id="@+id/txt_totalhoursvalue"
             android:layout_width="wrap_content"
@@ -222,8 +223,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdernumber"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_ordinarytimevalue"
@@ -235,8 +235,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_penal25value"
@@ -247,8 +246,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_penal5value"
@@ -259,8 +257,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_timeandhalfvalue"
@@ -307,8 +304,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_payevalue"
@@ -320,8 +316,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_studentloanvalue"
@@ -332,8 +327,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_unionfeevalue"
@@ -344,8 +338,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_parkingfeevalue"
@@ -356,8 +349,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_employeekiwisavervalue"
@@ -368,8 +360,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_employeerkiwisavervalue"
@@ -380,8 +371,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_paynetvalue"
@@ -393,8 +383,7 @@
             android:layout_marginRight="35dp"
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            />
+            android:textSize="25sp" />
 
 
 

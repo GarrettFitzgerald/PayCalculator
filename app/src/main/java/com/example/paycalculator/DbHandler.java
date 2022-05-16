@@ -17,7 +17,7 @@ public class DbHandler extends SQLiteOpenHelper
 {
 
     private static final String DB_NAME = "payCalcDb";
-    private static final int DB_VERSION = 17;
+    private static final int DB_VERSION = 19;
 
     private static final String TABLE_NAME = "users";
     private static final String USER_PK = "userPK";
@@ -104,6 +104,24 @@ public class DbHandler extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE2_NAME);
         onCreate(db);
+    }
+
+    public Boolean checkUserExists ( String generatedName )
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "Select * from users where username = ?";
+        Cursor cursor = db.rawQuery( query, new String[] { generatedName });
+
+        if(cursor.getCount() > 0 )
+        {
+            cursor.close();
+            return true;
+        }
+        else
+        {
+            cursor.close();
+            return false;
+        }
     }
 
     public void insertUserDetails( UserModal userModal)

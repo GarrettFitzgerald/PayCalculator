@@ -70,11 +70,15 @@ public class LogInScreen extends AppCompatActivity
                 String username = edt_username.getText().toString();
                 String password = edt_password.getText().toString();
 
-                if(username.equals(""))
+                if( username.equals(""))
                 {
                     Toast.makeText( LogInScreen.this, "Please enter a Username", Toast.LENGTH_SHORT).show();
                 }
-                else if(password.equals(""))
+                else if(db.checkUserExists( username ) == false)
+                {
+                    Toast.makeText( LogInScreen.this, "Username does not exist", Toast.LENGTH_SHORT).show();
+                }
+                else if( password.equals(""))
                 {
                     Toast.makeText( LogInScreen.this, "Please enter a Password", Toast.LENGTH_SHORT).show();
                 }
@@ -212,11 +216,17 @@ public class LogInScreen extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                if( edt_firstname.getText().toString().length() > 0 &&
+                String generatedName = txt_generatedname.getText().toString();
+                if( db.checkUserExists( generatedName ) == true  )
+                {
+                    Toast.makeText(LogInScreen.this, "Username already exists", Toast.LENGTH_SHORT).show();
+                }
+                else if ( edt_firstname.getText().toString().length() > 0 &&
                     edt_lastname.getText().toString().length() > 0 &&
                     !txt_generatedname.getText().toString().equals( "xxxxxx" ) &&
                     edt_passwordenter.getText().toString().length() >= 6 &&
-                    edt_passwordenter.getText().toString().equals( edt_passwordconfirm.getText().toString() ) )
+                    edt_passwordenter.getText().toString().equals( edt_passwordconfirm.getText().toString()
+                    ) )
                 {
                     UserModal user = null;
                     try

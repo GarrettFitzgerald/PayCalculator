@@ -188,7 +188,7 @@ public class PaySheets extends AppCompatActivity
 
             //Load the table
             tableDetails = db.getPayCycleTable( currentID, displayDate);
-            Toast.makeText(PaySheets.this, "Database Read",Toast.LENGTH_SHORT).show();
+            Toast .makeText(PaySheets.this, "Database Read",Toast.LENGTH_SHORT).show();
         }
 
         dialogBuilder.setView( inputBreakdownPopUpView );
@@ -204,14 +204,13 @@ public class PaySheets extends AppCompatActivity
             }
         });
 
-        HashMap<String, String> finalTableDetails = tableDetails;
         btn_input.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
                 Intent intentGoToShiftInput = new Intent ( PaySheets.this, ShiftInput.class);
-                intentGoToShiftInput.putExtra("tabledetails", (Serializable) finalTableDetails);
+                intentGoToShiftInput.putExtra("tabledetails", (Serializable) tableDetails);
                 intentGoToShiftInput.putExtra("CurrentID", currentID );
                 startActivity( intentGoToShiftInput);
             }
@@ -223,6 +222,7 @@ public class PaySheets extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intentGoToBreakdown = new Intent ( PaySheets.this, Breakdown.class);
+                intentGoToBreakdown.putExtra("tabledetails", (Serializable) tableDetails);
                 intentGoToBreakdown.putExtra("CurrentID", currentID );
                 startActivity( intentGoToBreakdown);
             }

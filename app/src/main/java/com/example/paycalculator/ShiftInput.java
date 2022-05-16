@@ -287,7 +287,6 @@ public class ShiftInput extends AppCompatActivity
             public void onClick(View view)
             {
                 // Add update table method
-                // Add update table method
                 mondayone = btn_mondayone.getText().toString();
                 tuesdayone = btn_tuesdayone.getText().toString();
                 wednesdayone = btn_wednesdayone.getText().toString();
@@ -717,7 +716,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondayone.setText("----");
+                btn_tuesdayone.setText("----");
                 dialog.dismiss();
             }
         });
@@ -908,7 +907,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondayone.setText("----");
+                btn_wednesdayone.setText("----");
                 dialog.dismiss();
             }
         });
@@ -1099,7 +1098,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondayone.setText("----");
+                btn_thursdayone.setText("----");
                 dialog.dismiss();
             }
         });
@@ -1290,7 +1289,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondayone.setText("----");
+                btn_fridayone.setText("----");
                 dialog.dismiss();
             }
         });
@@ -1481,7 +1480,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondayone.setText("----");
+                btn_saturdayone.setText("----");
                 dialog.dismiss();
             }
         });
@@ -1672,7 +1671,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondayone.setText("----");
+                btn_sundayone.setText("----");
                 dialog.dismiss();
             }
         });
@@ -2055,7 +2054,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondaytwo.setText("----");
+                btn_tuesdaytwo.setText("----");
                 dialog.dismiss();
             }
         });
@@ -2246,7 +2245,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondaytwo.setText("----");
+                btn_wednesdaytwo.setText("----");
                 dialog.dismiss();
             }
         });
@@ -2437,7 +2436,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondaytwo.setText("----");
+                btn_thursdaytwo.setText("----");
                 dialog.dismiss();
             }
         });
@@ -2628,7 +2627,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondaytwo.setText("----");
+                btn_fridaytwo.setText("----");
                 dialog.dismiss();
             }
         });
@@ -2819,7 +2818,7 @@ public class ShiftInput extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                btn_mondaytwo.setText("----");
+                btn_saturdaytwo.setText("----");
                 dialog.dismiss();
             }
         });
