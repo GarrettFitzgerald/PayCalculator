@@ -39,181 +39,246 @@
         android:id="@+id/lyt_two"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/lyt_one"
         android:layout_above="@id/lyt_three"
-    >
+        android:layout_below="@id/lyt_one">
 
         <TextView
             android:id="@+id/txt_weekone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_weekone"
-            android:textSize="30dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="75dp"
-        /> //Week One Label
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/txt_weekone"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+        //Week One Label
+
         <TextView
             android:id="@+id/txt_weektwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_weektwo"
-            android:textSize="30dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="75dp"
             android:layout_alignParentRight="true"
-            /> //Week Two Label
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="60dp"
+            android:text="@string/txt_weektwo"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/txt_monday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:text="@string/txt_monday"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txt_tuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_monday"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:text="@string/txt_tuesday"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/txt_wednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_tuesday"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:text="@string/txt_wednesday"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txt_thursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_wednesday"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="46dp"
+            android:text="@string/txt_thursday"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/txt_friday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_thursday"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:text="@string/txt_friday"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/txt_saturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_friday"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:text="@string/txt_saturday"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txt_sunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_saturday"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp"
+            android:text="@string/txt_sunday"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btn_mondayone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_weekone"
+            android:layout_marginTop="65dp"
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/txt_monday"
             android:text="@string/btn_empty"
-            android:textSize="25dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="100dp" /> //Week One Monday
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_tuesdayone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_mondayone"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="100dp"
-            /> //Week One Tuesday
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_wednesdayone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_tuesdayone"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="100dp"
-            /> //Week One Wednesday
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
+
         <Button
             android:id="@+id/btn_thursdayone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_wednesdayone"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="100dp"
-            /> //Week One Thursday
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_fridayone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_thursdayone"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="100dp"
-            /> //Week One Friday
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_saturdayone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_fridayone"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="100dp"
-            /> //Week One Saturday
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_sundayone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_saturdayone"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="100dp"
-            /> //Week One Sunday
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
+
 
         <Button
             android:id="@+id/btn_mondaytwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_weektwo"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="65dp"
+            android:layout_toRightOf="@id/txt_monday"
             android:text="@string/btn_empty"
-            android:textSize="25dp"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="100dp"
-            /> //Week Two Monday
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_tuesdaytwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_mondaytwo"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="100dp"
-            /> //Week Two Tuesday
+            android:layout_toRightOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_wednesdaytwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_tuesdaytwo"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="100dp"
-            /> //Week Two Wednesday
+            android:layout_toRightOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_thursdaytwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_wednesdaytwo"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="100dp"
-            /> //Week Two Thursday
+            android:layout_toRightOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_fridaytwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_thursdaytwo"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="100dp"
-            /> //Week Two Friday
+            android:layout_toRightOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_saturdaytwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_fridaytwo"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="100dp"
-            /> //Week Two Saturday
+            android:layout_toRightOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
         <Button
             android:id="@+id/btn_sundaytwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_saturdaytwo"
-            android:text="@string/btn_empty"
-            android:textSize="25dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="100dp"
-            /> //Week Two Sunday
-
+            android:layout_toRightOf="@id/txt_monday"
+            android:text="@string/btn_empty"
+            android:textSize="25dp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -229,8 +294,7 @@
             android:id="@+id/btn_clear"
             android:layout_width="230dp"
             android:layout_height="55dp"
-            android:text="@string/btn_clear"
-        />
+            android:text="@string/btn_clear" />
 
         <Button
             android:id="@+id/btn_breakdown"

@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity
             public void run()
             {
                 startActivity( intentToLoginScreen );
+                finish();
             }
-        }, 0);
+        }, 5000);
     }
 }

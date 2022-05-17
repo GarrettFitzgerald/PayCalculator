@@ -1,5 +1,6 @@
 package com.example.paycalculator;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,9 @@ import androidx.appcompat.view.menu.ActionMenuItemView;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,6 +42,7 @@ public class PaySheets extends AppCompatActivity
     LocalDate currentDate;
     LocalDate currentCycle;
     LocalDate toSendCycle;
+    int currentID;
 
     LocalDateTime date = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
 
@@ -60,11 +65,30 @@ public class PaySheets extends AppCompatActivity
     DbHandler db = new DbHandler(PaySheets.this);
 
     ListView shiftList;
-    String shifts[] = { "xx/xx/xx - xx/xx/xx",
-        "xx/xx/xx - xx/xx/xx",
-        "xx/xx/xx - xx/xx/xx",
-        "xx/xx/xx - xx/xx/xx",
-        "xx/xx/xx - xx/xx/xx"};
+    List<LocalDate> shifts;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.topmenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.mnu_logout:
+                Intent toLoginScreen=new Intent(PaySheets.this, LogInScreen.class);
+                toLoginScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(toLoginScreen);
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +99,6 @@ public class PaySheets extends AppCompatActivity
         btn_currentdate = findViewById(R.id.btn_currentdate);
         btn_futuredate = findViewById(R.id.btn_futuredate);
         btn_information = findViewById(R.id.btn_information);
-        btn_future = findViewById(R.id.btn_future);
-        btn_history = findViewById(R.id.btn_history);
 
         int currentID = getIntent().getIntExtra("CurrentID", 0);
 
@@ -111,6 +133,7 @@ public class PaySheets extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intentToInformation = new Intent(PaySheets.this, Information.class);
+
                 intentToInformation.putExtra("CurrentID", currentID);
                 startActivity(intentToInformation);
             }
@@ -159,7 +182,7 @@ public class PaySheets extends AppCompatActivity
         DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd/MM/yy");
         txt_dateselected.setText( sdf.format( displayDate ) + " - " +
                                   sdf.format( displayDate.plusDays( 13 ) ) );
-        int currentID = getIntent().getIntExtra("CurrentID", 0);
+        currentID = getIntent().getIntExtra("CurrentID", 0);
 
         Boolean tableExists = db.checkPayCycleExists( currentID, displayDate);
         if(tableExists == true)
@@ -213,6 +236,7 @@ public class PaySheets extends AppCompatActivity
                 intentGoToShiftInput.putExtra("tabledetails", (Serializable) tableDetails);
                 intentGoToShiftInput.putExtra("CurrentID", currentID );
                 startActivity( intentGoToShiftInput);
+                dialog.dismiss();
             }
         });
 
@@ -225,6 +249,7 @@ public class PaySheets extends AppCompatActivity
                 intentGoToBreakdown.putExtra("tabledetails", (Serializable) tableDetails);
                 intentGoToBreakdown.putExtra("CurrentID", currentID );
                 startActivity( intentGoToBreakdown);
+                dialog.dismiss();
             }
         });
     }

@@ -26,11 +26,8 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_paycycles"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
-        >
-        </ListView>
+            android:layout_marginTop="20dp"></ListView>
 
     </RelativeLayout>
 </RelativeLayout>

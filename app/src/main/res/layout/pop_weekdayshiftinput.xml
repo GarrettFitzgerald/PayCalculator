@@ -192,12 +192,11 @@
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_below="@id/btn_1800"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/centre"
-        android:layout_marginLeft="20dp"
         android:text="----"
-        android:textSize="10dp"
-        />
+        android:textSize="10dp" />
 
 
 </RelativeLayout>

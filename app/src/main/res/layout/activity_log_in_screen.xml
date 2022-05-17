@@ -51,20 +51,18 @@
             android:id="@+id/btn_login"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:text="@string/btn_login"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/edt_password"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-        />
+            android:text="@string/btn_login" />
 
         <Button
             android:id="@+id/btn_clear"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:text="@string/btn_clear"
             android:layout_below="@id/edt_password"
             android:layout_marginTop="30dp"
-        />
+            android:text="@string/btn_clear" />
 
         <Button
             android:id="@+id/btn_signup"
@@ -77,5 +75,15 @@
         />
 
     </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="@string/btn_deleteuser" />
 
 </RelativeLayout>

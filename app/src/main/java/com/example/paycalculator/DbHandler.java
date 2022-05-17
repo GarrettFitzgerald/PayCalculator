@@ -17,7 +17,7 @@ public class DbHandler extends SQLiteOpenHelper
 {
 
     private static final String DB_NAME = "payCalcDb";
-    private static final int DB_VERSION = 19;
+    private static final int DB_VERSION = 20;
 ;
     private static final String TABLE_NAME = "users";
     private static final String USER_PK = "userPK";
@@ -142,6 +142,31 @@ public class DbHandler extends SQLiteOpenHelper
 
         long newRowID = db.insert(TABLE_NAME, null, values);
         db.close();
+    }
+
+    public Boolean deleteUser ( String username )
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT username FROM users WHERE username = ?";
+        Cursor c = db.rawQuery( query, new String[] {username});
+
+        int currentID = 0;
+
+        if ( c != null && c.moveToFirst() )
+        {
+            currentID = c.getInt( 0 );
+            query = "DELETE FROM paycycles WHERE userid = " + currentID;
+            db.execSQL( query );
+            query = "DELETE FROM users WHERE username = ?";
+            db.execSQL( query, new String[] { username });
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+
     }
 
     public void insertTableDetails( PayCycleModal payCycleModal )

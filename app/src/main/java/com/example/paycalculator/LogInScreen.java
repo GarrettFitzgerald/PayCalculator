@@ -20,38 +20,41 @@ import java.util.Arrays;
 
 public class LogInScreen extends AppCompatActivity
 {
-    AlertDialog.Builder dialogBuilder;
-    AlertDialog dialog;
-
+// Declaring Objects
     Button btn_clear;
     Button btn_login;
     Button btn_signup;
-    EditText edt_username;
-    EditText edt_password;
-
     Button btn_confirm;
     Button btn_back;
-
-    TextView txt_generatedname;
+    Button btn_delete;
+    Button btn_deleteuser;
+    EditText edt_username;
+    EditText edt_password;
     EditText edt_firstname;
     EditText edt_lastname;
     EditText edt_passwordenter;
     EditText edt_passwordconfirm;
-
+    EditText edt_userdelete;
+    TextView txt_generatedname;
+// Setting up
     DbHandler db = new DbHandler(LogInScreen.this);
+    AlertDialog.Builder dialogBuilder;
+    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_screen);
-
+// Setting Objects
         btn_clear = findViewById( R.id.btn_clear);
         btn_login = findViewById( R.id.btn_login);
         btn_signup = findViewById( R.id.btn_signup);
+        btn_delete = findViewById( R.id.btn_delete);
+        btn_deleteuser = findViewById( R.id.btn_deleteuser);
         edt_username = findViewById( R.id.edt_username);
         edt_password = findViewById( R.id.edt_password);
-
+// Adding functions to the buttons
         btn_clear.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -93,10 +96,11 @@ public class LogInScreen extends AppCompatActivity
                         Toast.makeText(LogInScreen.this, password, Toast.LENGTH_SHORT).show();
 
                         Toast.makeText( LogInScreen.this, "CurrentID = " + currentID, Toast.LENGTH_SHORT).show();
-                        Toast.makeText( LogInScreen.this, "Login Succesful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText( LogInScreen.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intentToInformation = new Intent( LogInScreen.this, Information.class);
                         intentToInformation.putExtra("CurrentID", currentID );
                         startActivity(intentToInformation);
+                        finish();
                     }
                     else
                     {
@@ -114,13 +118,22 @@ public class LogInScreen extends AppCompatActivity
                 createNewSignUpDialog();
             }
         });
+        btn_delete.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                createUserDeleteDialog();
+            }
+        });
     }
-
+// Creating the SignUp Dialog
     public void createNewSignUpDialog()
     {
+// Setting Up
         dialogBuilder = new AlertDialog.Builder( LogInScreen.this );
         View inputSignUpPopUpView = getLayoutInflater().inflate( R.layout.popup_signup, null );
-
+// Setting Objects
         btn_back = inputSignUpPopUpView.findViewById( R.id.btn_back );
         btn_confirm = inputSignUpPopUpView.findViewById( R.id.btn_confirm );
         txt_generatedname = inputSignUpPopUpView.findViewById( R.id.txt_generatedname);
@@ -128,11 +141,11 @@ public class LogInScreen extends AppCompatActivity
         edt_lastname = inputSignUpPopUpView.findViewById(R.id.edt_lastname);
         edt_passwordenter = inputSignUpPopUpView.findViewById(R.id.edt_passwordenter);
         edt_passwordconfirm = inputSignUpPopUpView.findViewById(R.id.edt_passwordconfirm);
-
+// Loading Dialog
         dialogBuilder.setView( inputSignUpPopUpView );
         dialog = dialogBuilder.create();
         dialog.show();
-
+// Listeners for generating the Username
         edt_firstname.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -202,6 +215,7 @@ public class LogInScreen extends AppCompatActivity
             }
         });
 
+// Adding functions to buttons
         btn_back.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -251,6 +265,50 @@ public class LogInScreen extends AppCompatActivity
                 {
                     Toast.makeText(LogInScreen.this, "Account will not be made", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+    }
+
+// Creating Delete Dialog
+    public void createUserDeleteDialog()
+    {
+// Setting Up
+        dialogBuilder = new AlertDialog.Builder( LogInScreen.this );
+        View inputDeleteUserPopupView = getLayoutInflater().inflate( R.layout.popup_deleteuser, null );
+// Setting Objects
+        edt_userdelete = inputDeleteUserPopupView.findViewById(R.id.edt_userdelete);
+        btn_deleteuser = inputDeleteUserPopupView.findViewById(R.id.btn_deleteuser);
+        btn_back = inputDeleteUserPopupView.findViewById(R.id.btn_back);
+// Loading Dialog
+        dialogBuilder.setView( inputDeleteUserPopupView );
+        dialog = dialogBuilder.create();
+        dialog.show();
+// Adding functions to buttons
+        btn_deleteuser.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if ( db.deleteUser( edt_userdelete.getText().toString() ) == true )
+                {
+                    Toast.makeText( LogInScreen.this, edt_userdelete.getText().toString() + " has been deleted",
+                            Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                }
+                else
+                {
+                    Toast.makeText( LogInScreen.this, "Username entered is invalid", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        btn_back.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                dialog.dismiss();
             }
         });
     }

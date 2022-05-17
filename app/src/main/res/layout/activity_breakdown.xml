@@ -90,46 +90,13 @@
         />
 
         <TextView
-            android:id="@+id/txt_timeandhalf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_timeandhalf"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:layout_below="@id/txt_penal5"
-            android:layout_marginLeft="20dp"
-        />
-
-        <TextView
-            android:id="@+id/txt_doubletime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_doubletime"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:layout_below="@id/txt_timeandhalf"
-            android:layout_marginLeft="20dp"
-        />
-
-        <TextView
-            android:id="@+id/txt_stat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_stat"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:layout_below="@id/txt_doubletime"
-            android:layout_marginLeft="20dp"
-        />
-
-        <TextView
             android:id="@+id/txt_grosspay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_paygross"
             android:textColor="@color/white"
             android:textSize="25sp"
-            android:layout_below="@id/txt_stat"
+            android:layout_below="@id/txt_penal5"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
         />
@@ -259,46 +226,12 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/txt_timeandhalfvalue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_penal5value"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="35dp"
-            android:text="@string/txt_placeholdervalue"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-        />
-
-        <TextView
-            android:id="@+id/txt_doubletimevalue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_timeandhalfvalue"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="35dp"
-            android:text="@string/txt_placeholdervalue"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/txt_statvalue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_doubletimevalue"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="35dp"
-            android:text="@string/txt_placeholdervalue"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-        />
 
         <TextView
             android:id="@+id/txt_paygrossvalue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_statvalue"
+            android:layout_below="@id/txt_penal5value"
             android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
             android:layout_marginRight="35dp"
