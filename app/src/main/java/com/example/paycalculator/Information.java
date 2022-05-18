@@ -80,6 +80,11 @@ public class Information extends AppCompatActivity
                 startActivity(toLoginScreen);
                 finish();
                 break;
+            case R.id.mnu_userlist:
+                Intent toUserList=new Intent(Information.this, UserList.class);
+                startActivity(toUserList);
+                finish();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

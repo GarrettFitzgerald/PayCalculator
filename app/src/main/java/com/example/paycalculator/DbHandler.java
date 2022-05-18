@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class DbHandler extends SQLiteOpenHelper
 {
@@ -321,10 +322,9 @@ public class DbHandler extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         HashMap<String, String> tableDetails = new HashMap<>();
         String query = "SELECT * FROM paycycles WHERE userID = " + currentID + " AND startdate = ?";
-        Cursor c = db.rawQuery(query, new String[]{ currentCycle.toString()});
+        Cursor c = db.rawQuery(query, new String[]{currentCycle.toString()});
 
-        if(c != null && c.moveToNext())
-        {
+        if (c != null && c.moveToNext()) {
             tableDetails.put("startdate", String.valueOf(c.getString(c.getColumnIndex(START_DATE))));
             tableDetails.put("W1_Monday", c.getString(c.getColumnIndex(WEEK1_MON)));
             tableDetails.put("W1_Tuesday", c.getString(c.getColumnIndex(WEEK1_TUES)));
@@ -344,4 +344,77 @@ public class DbHandler extends SQLiteOpenHelper
         }
         return tableDetails;
     }
+
+    @SuppressLint("Range")
+    public List<String> getListOfFirstNames()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<String> firstNames = new ArrayList<>();
+        String query = "SELECT firstname FROM users";
+        Cursor c = db.rawQuery(query, null);
+
+        c.moveToFirst();
+
+        if (c != null && c.moveToFirst())
+        {
+            firstNames.add(c.getString(c.getColumnIndex(FIRSTNAME_COL)));
+        }
+
+        return firstNames;
+    }
+
+    @SuppressLint("Range")
+    public List<String> getListOfLastNames()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<String> lastNames = new ArrayList<>();
+        String query = "SELECT lastname FROM users";
+        Cursor c = db.rawQuery(query, null);
+
+        c.moveToFirst();
+
+        if (c != null && c.moveToFirst())
+        {
+            lastNames.add(c.getString(c.getColumnIndex(LASTNAME_COL)));
+        }
+
+        return lastNames;
+    }
+
+    @SuppressLint("Range")
+    public List<String> getListOfJobTitles()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<String> jobTitles = new ArrayList<>();
+        String query = "SELECT jobtitle FROM users";
+        Cursor c = db.rawQuery(query, null);
+
+        c.moveToFirst();
+
+        if (c != null && c.moveToFirst())
+        {
+            jobTitles.add(c.getString(c.getColumnIndex(JOBTITLE_COL)));
+        }
+
+        return jobTitles;
+    }
+
+    @SuppressLint("Range")
+    public List<String> getListOfUsernames()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<String> usernames = new ArrayList<>();
+        String query = "SELECT username FROM users";
+        Cursor c = db.rawQuery(query, null);
+
+        c.moveToFirst();
+
+        if (c != null && c.moveToFirst())
+        {
+            usernames.add(c.getString(c.getColumnIndex(USER_COL)));
+        }
+
+        return usernames;
+    }
+
 }

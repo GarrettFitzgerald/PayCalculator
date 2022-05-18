@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/lst_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="5dp"
+    />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/lst_firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Garrett"
+        android:textSize="20dp"
+    />
+    <TextView
+        android:id="@+id/lst_lastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fitzgerald"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/lst_firstname"
+        android:textSize="20dp"
+    />
+    <TextView
+        android:id="@+id/lst_jobtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="160dp"
+        android:text="Orderly"
+        android:textSize="20dp"
+    />
+    <TextView
+        android:id="@+id/lst_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fitgar"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/lst_jobtitle"
+        android:layout_marginLeft="160dp"
+        android:textSize="20dp"
+    />
+    </RelativeLayout>
+</LinearLayout>
