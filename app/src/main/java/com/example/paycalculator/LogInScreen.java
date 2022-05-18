@@ -34,7 +34,6 @@ public class LogInScreen extends AppCompatActivity
     EditText edt_lastname;
     EditText edt_passwordenter;
     EditText edt_passwordconfirm;
-    EditText edt_userdelete;
     TextView txt_generatedname;
 // Setting up
     DbHandler db = new DbHandler(LogInScreen.this);
@@ -50,7 +49,6 @@ public class LogInScreen extends AppCompatActivity
         btn_clear = findViewById( R.id.btn_clear);
         btn_login = findViewById( R.id.btn_login);
         btn_signup = findViewById( R.id.btn_signup);
-        btn_delete = findViewById( R.id.btn_delete);
         btn_deleteuser = findViewById( R.id.btn_deleteuser);
         edt_username = findViewById( R.id.edt_username);
         edt_password = findViewById( R.id.edt_password);
@@ -92,10 +90,6 @@ public class LogInScreen extends AppCompatActivity
                     {
                         int currentID = db.getCurrentUserID( username );
 
-                        Toast.makeText(LogInScreen.this, username, Toast.LENGTH_SHORT).show();
-                        Toast.makeText(LogInScreen.this, password, Toast.LENGTH_SHORT).show();
-
-                        Toast.makeText( LogInScreen.this, "CurrentID = " + currentID, Toast.LENGTH_SHORT).show();
                         Toast.makeText( LogInScreen.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intentToInformation = new Intent( LogInScreen.this, Information.class);
                         intentToInformation.putExtra("CurrentID", currentID );
@@ -116,14 +110,6 @@ public class LogInScreen extends AppCompatActivity
             public void onClick(View view)
             {
                 createNewSignUpDialog();
-            }
-        });
-        btn_delete.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                createUserDeleteDialog();
             }
         });
     }
@@ -268,49 +254,4 @@ public class LogInScreen extends AppCompatActivity
             }
         });
     }
-
-// Creating Delete Dialog
-    public void createUserDeleteDialog()
-    {
-// Setting Up
-        dialogBuilder = new AlertDialog.Builder( LogInScreen.this );
-        View inputDeleteUserPopupView = getLayoutInflater().inflate( R.layout.popup_deleteuser, null );
-// Setting Objects
-        edt_userdelete = inputDeleteUserPopupView.findViewById(R.id.edt_userdelete);
-        btn_deleteuser = inputDeleteUserPopupView.findViewById(R.id.btn_deleteuser);
-        btn_back = inputDeleteUserPopupView.findViewById(R.id.btn_back);
-// Loading Dialog
-        dialogBuilder.setView( inputDeleteUserPopupView );
-        dialog = dialogBuilder.create();
-        dialog.show();
-// Adding functions to buttons
-        btn_deleteuser.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                if ( db.deleteUser( edt_userdelete.getText().toString() ) == true )
-                {
-                    Toast.makeText( LogInScreen.this, edt_userdelete.getText().toString() + " has been deleted",
-                            Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                }
-                else
-                {
-                    Toast.makeText( LogInScreen.this, "Username entered is invalid", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-        btn_back.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                dialog.dismiss();
-            }
-        });
-    }
-
 }

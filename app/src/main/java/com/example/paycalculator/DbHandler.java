@@ -18,10 +18,10 @@ public class DbHandler extends SQLiteOpenHelper
 {
 
     private static final String DB_NAME = "payCalcDb";
-    private static final int DB_VERSION = 20;
+    private static final int DB_VERSION = 21;
 ;
     private static final String TABLE_NAME = "users";
-    private static final String USER_PK = "userPK";
+    private static final String USER_PK = "_id";
     private static final String USER_COL = "username";
     private static final String FIRSTNAME_COL = "firstname";
     private static final String LASTNAME_COL = "lastname";
@@ -145,7 +145,7 @@ public class DbHandler extends SQLiteOpenHelper
         db.close();
     }
 
-    public Boolean deleteUser ( String username )
+    public void deleteUser ( String username )
     {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT username FROM users WHERE username = ?";
@@ -160,14 +160,7 @@ public class DbHandler extends SQLiteOpenHelper
             db.execSQL( query );
             query = "DELETE FROM users WHERE username = ?";
             db.execSQL( query, new String[] { username });
-            return true;
         }
-        else
-        {
-            return false;
-        }
-
-
     }
 
     public void insertTableDetails( PayCycleModal payCycleModal )
@@ -237,7 +230,7 @@ public class DbHandler extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
         HashMap<String, String> userDetails = new HashMap<>();
-        String query = "SELECT * FROM users WHERE userPK = " + currentID;
+        String query = "SELECT * FROM users WHERE _id = " + currentID;
         Cursor c = db.rawQuery(query, null);
 
         if(c != null && c.moveToNext())
@@ -344,77 +337,4 @@ public class DbHandler extends SQLiteOpenHelper
         }
         return tableDetails;
     }
-
-    @SuppressLint("Range")
-    public List<String> getListOfFirstNames()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        List<String> firstNames = new ArrayList<>();
-        String query = "SELECT firstname FROM users";
-        Cursor c = db.rawQuery(query, null);
-
-        c.moveToFirst();
-
-        if (c != null && c.moveToFirst())
-        {
-            firstNames.add(c.getString(c.getColumnIndex(FIRSTNAME_COL)));
-        }
-
-        return firstNames;
-    }
-
-    @SuppressLint("Range")
-    public List<String> getListOfLastNames()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        List<String> lastNames = new ArrayList<>();
-        String query = "SELECT lastname FROM users";
-        Cursor c = db.rawQuery(query, null);
-
-        c.moveToFirst();
-
-        if (c != null && c.moveToFirst())
-        {
-            lastNames.add(c.getString(c.getColumnIndex(LASTNAME_COL)));
-        }
-
-        return lastNames;
-    }
-
-    @SuppressLint("Range")
-    public List<String> getListOfJobTitles()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        List<String> jobTitles = new ArrayList<>();
-        String query = "SELECT jobtitle FROM users";
-        Cursor c = db.rawQuery(query, null);
-
-        c.moveToFirst();
-
-        if (c != null && c.moveToFirst())
-        {
-            jobTitles.add(c.getString(c.getColumnIndex(JOBTITLE_COL)));
-        }
-
-        return jobTitles;
-    }
-
-    @SuppressLint("Range")
-    public List<String> getListOfUsernames()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        List<String> usernames = new ArrayList<>();
-        String query = "SELECT username FROM users";
-        Cursor c = db.rawQuery(query, null);
-
-        c.moveToFirst();
-
-        if (c != null && c.moveToFirst())
-        {
-            usernames.add(c.getString(c.getColumnIndex(USER_COL)));
-        }
-
-        return usernames;
-    }
-
 }

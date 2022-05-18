@@ -81,6 +81,7 @@ public class Information extends AppCompatActivity
                 finish();
                 break;
             case R.id.mnu_userlist:
+                db.updateUserDetails( currentID, jobTitle, payGrade, kiwisaver, union, studentLoan, parkingCard);
                 Intent toUserList=new Intent(Information.this, UserList.class);
                 startActivity(toUserList);
                 finish();

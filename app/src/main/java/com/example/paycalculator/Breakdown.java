@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -81,6 +80,11 @@ public class Breakdown extends AppCompatActivity
                 Intent toLoginScreen=new Intent(Breakdown.this, LogInScreen.class);
                 toLoginScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(toLoginScreen);
+                finish();
+                break;
+            case R.id.mnu_userlist:
+                Intent toUserList=new Intent(Breakdown.this, UserList.class);
+                startActivity(toUserList);
                 finish();
                 break;
         }

@@ -6,22 +6,20 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp">
+        android:layout_centerHorizontal="true">
 
         <TextView
             android:id="@+id/txt_title"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="@string/txt_deletetitle"
+            android:layout_marginTop="10dp"
+            android:text="User to be Deleted: "
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/edt_userdelete"
+        <TextView
+            android:id="@+id/txt_userdelete"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_below="@id/txt_title"
@@ -30,19 +28,22 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:hint="Enter Username Here" />
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/btn_deleteuser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edt_userdelete"
+            android:layout_below="@id/txt_userdelete"
             android:layout_centerHorizontal="true"
             android:text="@string/txt_delete" />
         <Button
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_below="@id/btn_deleteuser"
             android:layout_centerHorizontal="true"
             android:text="@string/btn_back" />

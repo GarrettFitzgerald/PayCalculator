@@ -8,11 +8,10 @@
     tools:context=".UserList"
     android:background="@color/DHB_Teal"
     >
-
     <ListView
         android:id="@+id/lst_userlist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="835dp"
     >
     </ListView>
 
@@ -22,9 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:text="@string/btn_information"
-        android:textSize="45sp"
-    />
+        android:layout_marginBottom="25dp"
+        android:text="Close and Restart"
+        android:textSize="30sp" />
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MyCursorAdaptor extends CursorAdapter
@@ -26,18 +27,32 @@ public class MyCursorAdaptor extends CursorAdapter
     @Override
     public void bindView(View view, Context context, Cursor cursor)
     {
-        TextView lst_firstname = (TextView) view.findViewById(R.id.lst_firstname);
-        TextView lst_lastname = (TextView) view.findViewById(R.id.lst_lastname);
-        TextView lst_jobtitle = (TextView) view.findViewById(R.id.lst_jobtitle);
+        ImageView lst_icon = (ImageView) view.findViewById(R.id.lst_icon);
+        TextView lst_firstname = (TextView) view.findViewById(R.id.lst_name);
+        TextView lst_jobtitle = (TextView) view.findViewById(R.id.lst_job);
         TextView lst_username = (TextView) view.findViewById(R.id.lst_username);
 
-        String firstName = cursor.getString(cursor.getColumnIndexOrThrow("firstname"));
-        String lastName = cursor.getString(cursor.getColumnIndexOrThrow("lastname"));
-        String jobTitle = cursor.getString(cursor.getColumnIndexOrThrow("jobtitle"));
+        String name = cursor.getString(cursor.getColumnIndexOrThrow("firstname")) + " " +
+                           cursor.getString(cursor.getColumnIndexOrThrow("lastname"));
+
+        String jobTitle;
+        if(cursor.getString(cursor.getColumnIndexOrThrow("jobtitle")).toString().equals("0"))
+        {
+            jobTitle = "Orderly";
+        }
+        else if(cursor.getString(cursor.getColumnIndexOrThrow("jobtitle")).toString().equals("1"))
+        {
+            jobTitle = "Security";
+        }
+        else
+        {
+            jobTitle = "Supervisor";
+        }
+
         String username = cursor.getString(cursor.getColumnIndexOrThrow("username"));
 
-        lst_firstname.setText(firstName);
-        lst_lastname.setText(lastName);
+        lst_icon.setBackgroundResource(R.drawable.noprofilepic);
+        lst_firstname.setText(name);
         lst_jobtitle.setText(jobTitle);
         lst_username.setText(username);
     }

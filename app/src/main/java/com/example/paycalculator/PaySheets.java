@@ -86,6 +86,11 @@ public class PaySheets extends AppCompatActivity
                 startActivity(toLoginScreen);
                 finish();
                 break;
+            case R.id.mnu_userlist:
+                Intent toUserList=new Intent(PaySheets.this, UserList.class);
+                startActivity(toUserList);
+                finish();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -133,7 +138,6 @@ public class PaySheets extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intentToInformation = new Intent(PaySheets.this, Information.class);
-
                 intentToInformation.putExtra("CurrentID", currentID);
                 startActivity(intentToInformation);
             }
@@ -189,7 +193,6 @@ public class PaySheets extends AppCompatActivity
         {
             // Load the table
             tableDetails = db.getPayCycleTable( currentID, displayDate);
-            Toast.makeText(PaySheets.this, "Database Read",Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -207,11 +210,9 @@ public class PaySheets extends AppCompatActivity
 
             DbHandler dbHandler = new DbHandler(PaySheets.this);
             dbHandler.insertTableDetails(cycle);
-            Toast.makeText(PaySheets.this, "Database Created",Toast.LENGTH_SHORT).show();
 
             //Load the table
             tableDetails = db.getPayCycleTable( currentID, displayDate);
-            Toast .makeText(PaySheets.this, "Database Read",Toast.LENGTH_SHORT).show();
         }
 
         dialogBuilder.setView( inputBreakdownPopUpView );
