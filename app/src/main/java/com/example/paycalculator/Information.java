@@ -25,7 +25,7 @@ public class Information extends AppCompatActivity
     HashMap<String, String> userDetails;
 
     String username;
-    int currentID;
+        int currentID;
     int jobTitle;
     int payGrade;
     int kiwisaver;

@@ -40,7 +40,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AAtestAll0000()
+    public void testAll0000()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -142,7 +142,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void ABtestAll0630()
+    public void testAll0630()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -244,7 +244,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void ACtestAll0700()
+    public void testAll0700()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -346,7 +346,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AAtestAll0730()
+    public void testAll0730()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -448,7 +448,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void ACtestAll0800()
+    public void testAll0800()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -550,7 +550,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AEtestAll0830()
+    public void testAll0830()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -652,7 +652,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AFtestAll0900()
+    public void testAll0900()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -754,7 +754,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AGtestAll1000()
+    public void testAll1000()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -856,7 +856,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AHtestAll1100()
+    public void testAll1100()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -958,7 +958,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AItestAll1200()
+    public void testAll1200()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -1060,7 +1060,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AJtestAll1530()
+    public void testAll1530()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -1162,7 +1162,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AKtestAll1600()
+    public void testAll1600()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -1264,7 +1264,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void ALtestAll1700()
+    public void testAll1700()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -1366,7 +1366,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AMtestAll1800()
+    public void testAll1800()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -1468,7 +1468,7 @@ public class ShiftInputTest
     }
 
     @Test
-    public void ANtestAll2000()
+    public void testAll2000()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -1570,109 +1570,179 @@ public class ShiftInputTest
     }
 
     @Test
-    public void AOtestAllClose()
+    public void testAllClose()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_tuesdayone)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_wednesdayone)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_thursdayone)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_fridayone)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_saturdayone)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_sundayone)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_mondaytwo)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_tuesdaytwo)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_wednesdaytwo)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_thursdaytwo)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_fridaytwo)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_saturdaytwo)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_sundaytwo)).
+                perform(click());
+        onView(withId(R.id.btn_0700)).
+                perform(click());
+
+        onView(withId(R.id.btn_mondayone)).
+                perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_mondayone)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_tuesdayone)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_tuesdayone)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_wednesdayone)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_wednesdayone)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_thursdayone)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_thursdayone)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_fridayone)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_fridayone)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_saturdayone)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_saturdayone)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_sundayone)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_sundayone)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_mondaytwo)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_mondaytwo)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_tuesdaytwo)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_tuesdaytwo)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_wednesdaytwo)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_wednesdaytwo)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_thursdaytwo)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_thursdaytwo)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_fridaytwo)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_fridaytwo)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_saturdaytwo)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_saturdaytwo)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
 
         onView(withId(R.id.btn_sundaytwo)).
                 perform(click());
         onView(withId(R.id.btn_close)).
                 perform(click());
         onView(withId(R.id.btn_sundaytwo)).
-                check(matches(withText("close")));
+                check(matches(withText("----")));
     }
 
     @Test
-    public void APtestClear()
+    public void testClear()
     {
         onView(withId(R.id.btn_mondayone)).
                 perform(click());
@@ -1777,19 +1847,5 @@ public class ShiftInputTest
         onView(withId(R.id.btn_sundaytwo)).
                 check(matches(withText("----")));
         
-    }
-
-    @Test //TODO Check if in new activity
-    public void AQtoBreakdown()
-    {
-        onView(withId(R.id.btn_breakdown)).
-                perform(click());
-    }
-
-    @Test //TODO Check if in new activity
-    public void ARtoInformation()
-    {
-        onView(withId(R.id.btn_information)).
-                perform(click());
     }
 }

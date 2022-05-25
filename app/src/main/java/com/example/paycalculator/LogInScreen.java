@@ -221,6 +221,31 @@ public class LogInScreen extends AppCompatActivity
                 {
                     Toast.makeText(LogInScreen.this, "Username already exists", Toast.LENGTH_SHORT).show();
                 }
+                else if (edt_firstname.getText().toString().length() == 0 &&
+                         edt_lastname.getText().toString().length() == 0)
+                {
+                    Toast.makeText(LogInScreen.this, "Please Enter a name", Toast.LENGTH_SHORT).show();
+                }
+                else if (edt_firstname.getText().toString().length() == 0)
+                {
+                    Toast.makeText(LogInScreen.this, "Please Enter a First name", Toast.LENGTH_SHORT).show();
+                }
+                else if (edt_lastname.getText().toString().length() == 0)
+                {
+                    Toast.makeText(LogInScreen.this, "Please Enter a Last name", Toast.LENGTH_SHORT).show();
+                }
+                else if (edt_passwordenter.getText().toString().length() < 6)
+                {
+                    Toast.makeText(LogInScreen.this, "Please Enter a valid password", Toast.LENGTH_SHORT).show();
+                }
+                else if (edt_passwordconfirm.getText().toString().length() < 6)
+                {
+                    Toast.makeText(LogInScreen.this, "Please re-confirm password", Toast.LENGTH_SHORT).show();
+                }
+                else if( !edt_passwordenter.getText().toString().equals( edt_passwordconfirm.getText().toString()))
+                {
+                    Toast.makeText(LogInScreen.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                }
                 else if ( edt_firstname.getText().toString().length() > 0 &&
                     edt_lastname.getText().toString().length() > 0 &&
                     !txt_generatedname.getText().toString().equals( "xxxxxx" ) &&

@@ -32,8 +32,8 @@ public class MyCursorAdaptor extends CursorAdapter
         TextView lst_jobtitle = (TextView) view.findViewById(R.id.lst_job);
         TextView lst_username = (TextView) view.findViewById(R.id.lst_username);
 
-        String name = cursor.getString(cursor.getColumnIndexOrThrow("firstname")) + " " +
-                           cursor.getString(cursor.getColumnIndexOrThrow("lastname"));
+        String name = cursor.getString(cursor.getColumnIndexOrThrow("lastname")) + ", " +
+                           cursor.getString(cursor.getColumnIndexOrThrow("firstname"));
 
         String jobTitle;
         if(cursor.getString(cursor.getColumnIndexOrThrow("jobtitle")).toString().equals("0"))

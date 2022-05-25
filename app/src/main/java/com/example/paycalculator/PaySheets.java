@@ -106,9 +106,9 @@ public class PaySheets extends AppCompatActivity
         btn_information = findViewById(R.id.btn_information);
 
         int currentID = getIntent().getIntExtra("CurrentID", 0);
-
-        startDate = LocalDate.of(2022, 1, 3);
-        endDate = LocalDate.of(2022, 12, 31);
+// Start of generating List of every second Monday
+        startDate = LocalDate.of(2022, 1, 3); // Date must be the start of a known paycycle
+        endDate = LocalDate.of(2022, 12, 31); // End date doesn't not need to be particular
         currentDate = LocalDate.now();
 
         List<LocalDate> newCycle = new ArrayList<>();
@@ -123,7 +123,7 @@ public class PaySheets extends AppCompatActivity
             currentCycle = newCycle.get(i);
             i++;
         } while (currentDate.isAfter(newCycle.get(i)));
-
+// End of generating List of every second Monday
         btn_previousdate.setText(sdf.format(currentCycle.plusDays(-14)) + " - " +
                 sdf.format(currentCycle.plusDays(-1)));
 
@@ -152,7 +152,7 @@ public class PaySheets extends AppCompatActivity
             }
         });
 
-        btn_previousdate.setOnClickListener(new View.OnClickListener() //Creates popup for previous pay sheet
+        btn_previousdate.setOnClickListener(new View.OnClickListener() //Creates popup for previous paysheet
         {
             @Override
             public void onClick(View view) {
@@ -161,7 +161,7 @@ public class PaySheets extends AppCompatActivity
             }
         });
 
-        btn_futuredate.setOnClickListener(new View.OnClickListener() //Creates popup for next pay sheet
+        btn_futuredate.setOnClickListener(new View.OnClickListener() //Creates popup for next paysheet
         {
             @Override
             public void onClick(View view)
