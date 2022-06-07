@@ -40,66 +40,91 @@
         android:id="@+id/lyt_two"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/lyt_one"
         android:layout_above="@id/lyt_three"
-        >
+        android:layout_below="@id/lyt_one">
         //Headings on the left
+
         <TextView
             android:id="@+id/txt_totalhours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:text="@string/txt_totalhours"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            android:layout_marginTop="20dp"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txt_totalpenal25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_totalhours"
             android:layout_marginLeft="20dp"
-        />
+            android:text="@string/txt_totalhours25"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txt_totalpenal5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_totalpenal25"
+            android:layout_marginLeft="20dp"
+            android:text="@string/txt_totalhours5"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txt_shiftcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_totalpenal5"
+            android:layout_marginLeft="20dp"
+            android:text="@string/txt_shiftcount"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_ordinarytime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_shiftcount"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:text="@string/txt_ordinarytime"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            android:layout_below="@id/txt_totalhours"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_penal25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_penal25"
-            android:textColor="@color/white"
-            android:textSize="25sp"
             android:layout_below="@id/txt_ordinarytime"
             android:layout_marginLeft="20dp"
-        />
+            android:text="@string/txt_penal25"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_penal5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_penal5"
-            android:textColor="@color/white"
-            android:textSize="25sp"
             android:layout_below="@id/txt_penal25"
             android:layout_marginLeft="20dp"
-        />
+            android:text="@string/txt_penal5"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_grosspay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/txt_penal5"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:text="@string/txt_paygross"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            android:layout_below="@id/txt_penal5"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_paye"
@@ -110,63 +135,57 @@
             android:layout_marginTop="20dp"
             android:text="@string/txt_paye"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_studentloan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_studentloan"
-            android:textColor="@color/white"
-            android:textSize="25sp"
             android:layout_below="@id/txt_paye"
             android:layout_marginLeft="20dp"
-        />
+            android:text="@string/txt_studentloan"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_union"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_unionfee"
-            android:textColor="@color/white"
-            android:textSize="25sp"
             android:layout_below="@id/txt_studentloan"
             android:layout_marginLeft="20dp"
-        />
+            android:text="@string/txt_unionfee"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_parking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_parkingfee"
-            android:textColor="@color/white"
-            android:textSize="25sp"
             android:layout_below="@id/txt_union"
             android:layout_marginLeft="20dp"
-        />
+            android:text="@string/txt_parkingfee"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_employeekiwisaver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_employeekiwisaver"
-            android:textColor="@color/white"
-            android:textSize="25sp"
             android:layout_below="@id/txt_parking"
             android:layout_marginLeft="20dp"
-        />
+            android:text="@string/txt_employeekiwisaver"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_employeerkiwisaver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_employeerkiwisaver"
-            android:textColor="@color/white"
-            android:textSize="25sp"
             android:layout_below="@id/txt_employeekiwisaver"
             android:layout_marginLeft="20dp"
-        />
+            android:text="@string/txt_employeerkiwisaver"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/txt_paynet"
@@ -177,8 +196,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/txt_paynet"
             android:textColor="@color/white"
-            android:textSize="25sp"
-        />
+            android:textSize="25sp" />
         //Headings on the right
 
         <TextView
@@ -193,10 +211,43 @@
             android:textSize="25sp" />
 
         <TextView
+            android:id="@+id/txt_totalhours25value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_totalhoursvalue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdernumber"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txt_totalhours5value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_totalhours25value"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdernumber"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txt_shiftcountvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_totalhours5value"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:text="@string/txt_placeholdernumber"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
             android:id="@+id/txt_ordinarytimevalue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_totalhoursvalue"
+            android:layout_below="@+id/txt_shiftcountvalue"
             android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
             android:layout_marginRight="35dp"
@@ -317,12 +368,6 @@
             android:text="@string/txt_placeholdervalue"
             android:textColor="@color/white"
             android:textSize="25sp" />
-
-
-
-
-
-
 
 
     </RelativeLayout>

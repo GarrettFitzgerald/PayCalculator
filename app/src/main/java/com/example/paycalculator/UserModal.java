@@ -62,6 +62,22 @@ public class UserModal
         this.parkingCard = parkingCard;
     } //used for information screen
 
+    public UserModal( int id, String username, String firstName, String lastName, String password, int jobTitle, int payGrade, int kiwisaver,
+                      int union, int studentLoan, int parkingCard)
+    {
+        this.id = id;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.jobTitle = jobTitle;
+        this.payGrade = payGrade;
+        this.kiwisaver = kiwisaver;
+        this.union = union;
+        this.studentLoan = studentLoan;
+        this.parkingCard = parkingCard;
+    }
+
     //Properties
     public int getId() {
         return id;

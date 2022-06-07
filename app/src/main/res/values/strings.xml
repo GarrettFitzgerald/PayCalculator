@@ -58,6 +58,9 @@
     <string name="txt_placeholdernumber">000.00</string>
     <string name="txt_futurepaycycles">Future Pay Cycles Available :</string>
     <string name="txt_historypaycycles">Historical Pay Cycles Available :</string>
+    <string name="txt_totalhours25">Hours at .25 Penal :</string>
+    <string name="txt_totalhours5">Hours at .5 Penal :</string>
+    <string name="txt_shiftcount">Shift Count :</string>
 
     <string name="hnt_firstname">First Name</string>
     <string name="hnt_lastname">Last Name</string>

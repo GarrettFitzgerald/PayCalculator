@@ -146,6 +146,5 @@ public class PayCycleModal
     public String getWeekTwo_Sunday(){return weekTwo_Sunday;}
     public void setWeekTwo_Sunday(String weekTwo_Sunday){ this.weekTwo_Sunday = weekTwo_Sunday;}
 
-
     //Methods
 }

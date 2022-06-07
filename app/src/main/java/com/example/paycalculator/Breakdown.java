@@ -30,6 +30,7 @@ public class Breakdown extends AppCompatActivity
     int totalHours;
     float penalPoint25 = 0;
     int penalPoint5 = 0;
+    int shiftCount = 0;
     double grossPay;
     double payeTax = 0;
     double loanThreshold = 818;
@@ -42,6 +43,9 @@ public class Breakdown extends AppCompatActivity
 // Declaring Objects
     TextView txt_date;
     TextView txt_totalhoursvalue;
+    TextView txt_totalhours25value;
+    TextView txt_totalhours5value;
+    TextView txt_shiftcountvalue;
     TextView txt_ordinarytimevalue;
     TextView txt_penal25value;
     TextView txt_penal5value;
@@ -101,6 +105,9 @@ public class Breakdown extends AppCompatActivity
         btn_input = findViewById(R.id.btn_input);
         btn_information = findViewById(R.id.btn_information);
         txt_totalhoursvalue = findViewById(R.id.txt_totalhoursvalue);
+        txt_totalhours25value = findViewById(R.id.txt_totalhours25value);
+        txt_totalhours5value = findViewById(R.id.txt_totalhours5value);
+        txt_shiftcountvalue= findViewById(R.id.txt_shiftcountvalue);
         txt_ordinarytimevalue = findViewById(R.id.txt_ordinarytimevalue);
         txt_penal25value = findViewById(R.id.txt_penal25value);
         txt_penal5value = findViewById(R.id.txt_penal5value);
@@ -140,16 +147,16 @@ public class Breakdown extends AppCompatActivity
         {
             if (userDetails.get("paygrade").equals("0"))
             {
-                pay = 20.90;
+                pay = 22.75;
             } else if (userDetails.get("paygrade").equals("1"))
             {
-                pay = 22.98;
+                pay = 24.58;
             } else if (userDetails.get("paygrade").equals("2"))
             {
-                pay = 24.34;
+                pay = 25.94;
             } else
             {
-                pay = 25.58;
+                pay = 27.18;
             }
         }
 // Security Paygrade
@@ -157,18 +164,18 @@ public class Breakdown extends AppCompatActivity
         {
             if (userDetails.get("paygrade").equals("0"))
             {
-                pay = 21.40;
+                pay = 23.00;
             }
             else if (userDetails.get("paygrade").equals("1"))
             {
-                pay = 23.48;
+                pay = 25.08;
             }
             else if (userDetails.get("paygrade").equals("2"))
             {
-                pay = 24.84;
+                pay = 26.44;
             } else
             {
-                pay = 26.08;
+                pay = 27.68;
             }
         }
 //  Supervior Paygrade
@@ -176,19 +183,19 @@ public class Breakdown extends AppCompatActivity
         {
             if (userDetails.get("paygrade").equals("0"))
             {
-                pay = 25.40;
+                pay = 27.00;
             }
             else if (userDetails.get("paygrade").equals("1"))
             {
-                pay = 27.48;
+                pay = 29.08;
             }
             else if (userDetails.get("paygrade").equals("2"))
             {
-                pay = 28.84;
+                pay = 30.44;
             }
             else
             {
-                pay = 30.08;
+                pay = 31.68;
             }
         }
 // Weekday Calculations
@@ -202,31 +209,47 @@ public class Breakdown extends AppCompatActivity
             {
                 totalHours += 8;
                 penalPoint25 += 6;
+                shiftCount += 1;
+            }
+            else if ( arrayWeekdays.get(i).equals("1100"))
+            {
+                totalHours += 8;
+                shiftCount += 1;
+            }
+            else if ( arrayWeekdays.get(i).equals("1200"))
+            {
+                totalHours += 8;
+                shiftCount += 1;
             }
             else if(arrayWeekdays.get(i).equals( "1530"))
             {
                 totalHours += 8;
                 penalPoint25 += 3.5;
+                shiftCount += 1;
             }
             else if(arrayWeekdays.get(i).equals("1600"))
             {
                 totalHours += 8;
                 penalPoint25 += 4;
+                shiftCount += 1;
             }
             else if(arrayWeekdays.get(i).equals("1700"))
             {
                 totalHours += 8;
                 penalPoint25 += 5;
+                shiftCount += 1;
             }
             else if(arrayWeekdays.get(i).equals("1800"))
             {
                 totalHours += 8;
                 penalPoint25 += 6;
+                shiftCount += 1;
             }
             else if(arrayWeekdays.get(i).equals("2000"))
             {
                 totalHours += 8;
                 penalPoint25 += 8;
+                shiftCount += 1;
             }
             else
             {
@@ -236,91 +259,152 @@ public class Breakdown extends AppCompatActivity
 // Friday Calculations
         for(int i = 0; i < 2; i++)
         {
-            if(arrayFridays.get(i).equals("----"))
             {
+                if (arrayFridays.get(i).equals("----")) {
 
-            }
-            else if(arrayFridays.get(i).equals("0000"))
-            {
-                totalHours += 8;
-                penalPoint25 += 6;
-            }
-            else if(arrayFridays.get(i).equals("1530"))
-            {
-                totalHours += 8;
-                penalPoint25 += 3.5;
-            }
-            else if(arrayFridays.get(i).equals("1600"))
-            {
-                totalHours += 8;
-                penalPoint25 += 4;
-            }
-            else if(arrayFridays.get(i).equals("1700"))
-            {
-                totalHours += 8;
-                penalPoint25 += 4;
-                penalPoint5 += 1;
-            }
-            else if(arrayFridays.get(i).equals("1800"))
-            {
-                totalHours +=8;
-                penalPoint25 += 4;
-                penalPoint5 += 2;
-            }
-            else if(arrayFridays.get(i).equals("2000"))
-            {
-                totalHours += 8;
-                penalPoint25 += 4;
-                penalPoint5 += 4;
-            }
-            else
-            {
-                totalHours += 8;
+                } else if (arrayFridays.get(i).equals("0000")) {
+                    totalHours += 8;
+                    penalPoint25 += 6;
+                    shiftCount += 1;
+                } else if (arrayFridays.get(i).equals("1100")) {
+                    totalHours += 8;
+                    shiftCount += 1;
+                } else if (arrayFridays.get(i).equals("1200")) {
+                    totalHours += 8;
+                    shiftCount += 1;
+                } else if (arrayFridays.get(i).equals("1530")) {
+                    totalHours += 8;
+                    penalPoint25 += 3.5;
+                    shiftCount += 1;
+                } else if (arrayFridays.get(i).equals("1600")) {
+                    totalHours += 8;
+                    penalPoint25 += 4;
+                    shiftCount += 1;
+                } else if (arrayFridays.get(i).equals("1700")) {
+                    totalHours += 8;
+                    penalPoint25 += 4;
+                    penalPoint5 += 1;
+                    shiftCount += 1;
+                } else if (arrayFridays.get(i).equals("1800")) {
+                    totalHours += 8;
+                    penalPoint25 += 4;
+                    penalPoint5 += 2;
+                    shiftCount += 1;
+                } else if (arrayFridays.get(i).equals("2000")) {
+                    totalHours += 8;
+                    penalPoint25 += 4;
+                    penalPoint5 += 4;
+                    shiftCount += 1;
+                }
+                else
+                {
+                    totalHours += 8;
+                }
             }
         }
 // Saturday Calculations
         for(int i = 0; i < 2; i++)
         {
-            if(arraySaturdays.get(i).equals("----"))
             {
+                if (arraySaturdays.get(i).equals("----"))
+                {
 
-            }
-            else
-            {
-                totalHours += 8;
-                penalPoint5 += 8;
+                } else if (arraySaturdays.get(i).equals("0000")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1100")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1200")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1530")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1600")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1700")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1800")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("2000")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                }
+                else
+                {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                }
             }
         }
 // Sunday Calculations
         for(int i = 0; i < 2; i++)
         {
-          if( arraySundays.get(i).equals("----"))
-          {
+            {
+                if (arraySaturdays.get(i).equals("----"))
+                {
 
-          }
-          else if( arraySundays.get(i).equals("1700"))
-          {
-              totalHours += 8;
-              penalPoint25 += 1;
-              penalPoint5 += 7;
-          }
-          else if( arraySundays.get(i).equals("1800"))
-          {
-              totalHours += 8;
-              penalPoint25 += 2;
-              penalPoint5 += 6;
-          }
-          else if(  arraySundays.get(i).equals("2000"))
-          {
-              totalHours += 8;
-              penalPoint25 += 4;
-              penalPoint5 += 4;
-          }
-          else
-          {
-              totalHours += 8;
-              penalPoint5 += 8;
-          }
+                } else if (arraySaturdays.get(i).equals("0000")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1100")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1200")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1530")) {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1600"))
+                {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                    shiftCount += 1;
+                } else if (arraySaturdays.get(i).equals("1700"))
+                {
+                    totalHours += 8;
+                    penalPoint25 += 1;
+                    penalPoint5 += 7;
+                    shiftCount += 1;
+                }
+                else if (arraySaturdays.get(i).equals("1800"))
+                {
+                        totalHours += 8;
+                        penalPoint25 += 2;
+                        penalPoint5 += 6;
+                        shiftCount += 1;
+                }
+                else if (arraySaturdays.get(i).equals("2000"))
+                {
+                            totalHours += 8;
+                            penalPoint25 += 4;
+                            penalPoint5 += 4;
+                            shiftCount += 1;
+                }
+                else
+                {
+                    totalHours += 8;
+                    penalPoint5 += 8;
+                }
+            }
+
         }
 // Gross Pay Calculation
         grossPay = ( totalHours * pay ) + ( ( penalPoint5 * pay) / 2 ) + ( ( penalPoint25 * pay ) / 4 );
@@ -328,7 +412,7 @@ public class Breakdown extends AppCompatActivity
 // Calculating Tax
         if (grossPay > 2693 )
         {
-            payeTax = 0;
+            payeTax = ( ( grossPay - 2693 ) * .39 ) + 254 + 229 + 57;
         }
         else if ( grossPay > 1847 )
         {
@@ -424,7 +508,10 @@ public class Breakdown extends AppCompatActivity
         netPay = grossPay - payeTax - studentLoan - unionFees - parkingCard - kiwisaver;
 // PLACING VALUES FOR THE BREAKDOWN
         txt_date.setText(sdf.format(currentCycle) + " - " + sdf.format(currentCycle.plusDays(13)));
-        txt_totalhoursvalue.setText( totalHours + ".00");
+        txt_totalhoursvalue.setText( totalHours + "" );
+        txt_totalhours25value.setText((int) penalPoint25 + "");
+        txt_totalhours5value.setText( penalPoint5 + "" );
+        txt_shiftcountvalue.setText( shiftCount + "" );
         txt_ordinarytimevalue.setText( "$" + String.format("%.2f",(totalHours * pay ) ) );
         txt_penal25value.setText( "$" + String.format("%.2f", ( penalPoint25 * pay ) / 4) );
         txt_penal5value.setText( "$" + String.format("%.2f", ( penalPoint5 * pay ) / 2 ) );
